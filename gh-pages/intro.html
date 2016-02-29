@@ -1,0 +1,176 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; SensorCraft 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SensorCraft 1 documentation" href="index.html" />
+    <link rel="next" title="00 Flat World" href="00_flat_world.html" />
+    <link rel="prev" title="README" href="README.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<p>Most people are familiar with Minecraft (Minecraft is developed by Mojang and
+not related to this programming tutorial nor do they endorse this tutorial) for
+this project we are using a Minecraft type environment created in the Python
+programming language. The Air Force Research Laboratory (AFRL) Sensors
+Directorate  located in Dayton, Ohio created this guide to inspire kids of all
+ages to learn to program and at the same time get an idea of what it is like to
+be a Scientist or Engineer for the Air Force.</p>
+<p>Python is an amazing programming language that is a widely used high-level
+programming language.  Python&#8217;s design philosophy emphasizes code readability
+with a code syntax that allows programmers to express concepts in fewer lines of
+code than would be possible in other programming languages such as C++ or Java.
+See the excellent <a class="reference external" href="https://en.wikipedia.org/wiki/Python_(programming_language)">wikipedia page on Python</a>  for more
+information. To demonstrate the expressive power of Python consider that we can
+create a Minecraft game in Python under 900 lines of code.  The game in this
+tutorial is not a complete Minecraft clone but it is functional and offers us
+the opportunity to explore adding more functions to it.</p>
+<p>Python is used everyday at AFRL in all of our technical directorates.  Over the
+last 10 years the language has excelled for science and engineering projects
+with a emphasis on high performance computing. The Air Force Research Laboratory
+is home to some of the <a class="reference external" href="http://www.top500.org/site/49284">world&#8217;s  fastest super computers</a>,  with the most recent super computer named
+Thunder which has over 125,000 CPU cores capable of computing 5.62 Petaflops and
+it runs Python!</p>
+<p>This project started with open source code from GitHub here:
+<a class="reference external" href="https://github.com/fogleman/Minecraft">https://github.com/fogleman/Minecraft</a></p>
+<p>This code is open source with the original license in the file named LICENSE
+take note we are permitted to use it and or modify it.  The original code is in
+main.py and the original texture is called &#8220;texture.png&#8221;.  Thank you fogleman
+for your effort your project is an amazing foundation to build a STEM project
+on. In science it is not unusual to start with somebody else&#8217;s work. Sir Isaac
+Newton is quoted as saying &#8220;if I have seen further, it is by standing on the
+shoulders of giants&#8221;. Newton was talking about how science builds upon the base
+that has been built  before.  We would argue nowhere in the history of man kind
+has the shoulders of giants concept been used like it has in software. Software
+is easy to  replicate and share.  In Sir Isaac Newton&#8217;s spirit this guide will
+be on github for all to modify, edit, and add to as people see fit. I am not
+perfect and I am sure this guide will have typos and mistakes please submit a
+pull request.  If you make a cool programming exercise please feel free to
+submit that modification via github here:</p>
+<p><a class="reference external" href="https://github.com/rovitotv/SensorCraft">https://github.com/rovitotv/SensorCraft</a></p>
+<div class="section" id="install">
+<h2>Install<a class="headerlink" href="#install" title="Permalink to this headline">¶</a></h2>
+<p>We are using Enthought Canopy for development.  Not sure why but Enthought&#8217;s web
+site says pyglet comes with Canopy but it does not want to import.  So I used
+the following commands:</p>
+<div class="highlight-python"><div class="highlight"><pre>enpkg setuptools
+enpkg pip
+pip install pyglet
+</pre></div>
+</div>
+<p>Now I can import pyglet which is required for this game!!!! Enthought has a
+free version of Canopy called <a class="reference external" href="https://www.enthought.com/canopy-express">Canopy Express</a> which should work with this
+code on the following operating system platforms Linux, Mac OS X, and
+Windows.</p>
+</div>
+<div class="section" id="getting-started">
+<h2>Getting Started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>Each separate tutorial builds on the previous tutorial but they are designed
+to stand on there own so feel free to skip around.  The tutorials start with
+simple objectives and builds to more difficult objectives. To get started first
+copy main.py into a new file name with the copy command like so:</p>
+<div class="highlight-python"><div class="highlight"><pre>cp main.py 00_flat_world_TVR.txt
+</pre></div>
+</div>
+<p>On Microsoft Windows platforms the copy command is spelled out &#8220;copy&#8221; and for
+Linux and OS X the command is &#8220;cp&#8221;.  The example above uses the programmer&#8217;s
+initials on the end of the file.</p>
+</div>
+<div class="section" id="programming-exercises">
+<h2>Programming Exercises<a class="headerlink" href="#programming-exercises" title="Permalink to this headline">¶</a></h2>
+<p>In this chapter we dive in with several different fun examples of extending
+the SensorCraft game.  Review the examples and try the code all of the
+exercises have complete answers in the code directory.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SensorCraft</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=&repo=&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Introduction</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#install">Install</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#programming-exercises">Programming Exercises</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="00_flat_world.html">00 Flat World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_building_automatically.html">01 Building Automatically</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_3D_coordinate_system.html">02 3D Coordinate System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_show_current_block.html">03 Show Current Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_play_with_gravity.html">04 Play with Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_pickling_the_world.html">05 Pickling The World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_reading_the_pickled_world.html">06 Reading the Pickled World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      
+      
+      
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/intro.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

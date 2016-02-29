@@ -1,0 +1,166 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>00 Flat World &mdash; SensorCraft 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SensorCraft 1 documentation" href="index.html" />
+    <link rel="next" title="01 Building Automatically" href="01_building_automatically.html" />
+    <link rel="prev" title="Introduction" href="intro.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="flat-world">
+<h1>00 Flat World<a class="headerlink" href="#flat-world" title="Permalink to this headline">¶</a></h1>
+<p>In this exercise we will modify the original code to make nothing but a flat
+world with a block &#8220;fence&#8221; around it.  To get started with this programming
+exercise first copy the original game&#8217;s python code to a new file
+00_flat_world_TVR.py but replace TVR with your initials using the
+following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>cp main.py 00_flat_world_TVR.py
+</pre></div>
+</div>
+<p>The object called &#8220;Model&#8221; starting on line 123 contains all the information
+about the world and the blocks that were used to create it.  A method named
+&#8220;_initialize&#8221; is used to create the world which initially is flat with a stone
+fence around it from line 156 to line 167.  Then starting on line 169 - line 187
+random hills are generated. To keep the world flat simply comment out that block
+of code from line 169 - line 187 by placing a &#8216;#&#8217; on the first character of each
+line. Below is what the _initalize method will look like after the code is
+&#8220;commented out&#8221;.</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">_initialize</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Initialize the world by placing all the blocks.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">n</span> <span class="o">=</span> <span class="mi">80</span>  <span class="c"># 1/2 width and height of world</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="mi">1</span>  <span class="c"># step size</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>  <span class="c"># initial y height</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">s</span><span class="p">):</span>
+                <span class="c"># create a layer stone an grass everywhere.</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">2</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">GRASS</span><span class="p">,</span> <span class="n">immediate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">-</span> <span class="mi">3</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">STONE</span><span class="p">,</span> <span class="n">immediate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">x</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">)</span> <span class="ow">or</span> <span class="n">z</span> <span class="ow">in</span> <span class="p">(</span><span class="o">-</span><span class="n">n</span><span class="p">,</span> <span class="n">n</span><span class="p">):</span>
+                    <span class="c"># create outer walls.</span>
+                    <span class="k">for</span> <span class="n">dy</span> <span class="ow">in</span> <span class="nb">xrange</span><span class="p">(</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">):</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">dy</span><span class="p">,</span> <span class="n">z</span><span class="p">),</span> <span class="n">STONE</span><span class="p">,</span> <span class="n">immediate</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+
+        <span class="c"># generate the hills randomly</span>
+        <span class="c"># o = n - 10</span>
+        <span class="c"># for _ in xrange(120):</span>
+        <span class="c">#     a = random.randint(-o, o)  # x position of the hill</span>
+        <span class="c">#     b = random.randint(-o, o)  # z position of the hill</span>
+        <span class="c">#     c = -1  # base of the hill</span>
+        <span class="c">#     h = random.randint(1, 6)  # height of the hill</span>
+        <span class="c">#     s = random.randint(4, 8)  # 2 * s is the side length of the hill</span>
+        <span class="c">#     d = 1  # how quickly to taper off the hills</span>
+        <span class="c">#     t = random.choice([GRASS, SAND, BRICK])</span>
+        <span class="c">#     for y in xrange(c, c + h):</span>
+        <span class="c">#         for x in xrange(a - s, a + s + 1):</span>
+        <span class="c">#             for z in xrange(b - s, b + s + 1):</span>
+        <span class="c">#                 if (x - a) ** 2 + (z - b) ** 2 &gt; (s + 1) ** 2:</span>
+        <span class="c">#                     continue</span>
+        <span class="c">#                 if (x - 0) ** 2 + (z - 0) ** 2 &lt; 5 ** 2:</span>
+        <span class="c">#                     continue</span>
+        <span class="c">#                 self.add_block((x, y, z), t, immediate=False)</span>
+        <span class="c">#         s -= d  # decrement side lenth so hills taper off</span>
+</pre></div>
+</div>
+<p>Now run the program &#8220;python 00_flat_world_TVR.py&#8221;.  Then walk in a straight line
+and eventually you will run into a stone wall.</p>
+<p>One more thing lets change the name of our game to Sensor Craft.  Skip down to
+line 886 and change the caption parameter from &#8220;Pyglet&#8221; to &#8220;Sensor Craft&#8221;. Test
+your title change by running the program once again &#8220;python 00_flat_world.py&#8221;,
+then make sure the title has been changed.</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">window</span> <span class="o">=</span> <span class="n">Window</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="n">height</span><span class="o">=</span><span class="mi">600</span><span class="p">,</span> <span class="n">caption</span><span class="o">=</span><span class="s">&#39;Sensor Craft&#39;</span><span class="p">,</span> <span class="n">resizable</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="c"># Hide the mouse cursor and prevent the mouse from leaving the window.</span>
+    <span class="n">window</span><span class="o">.</span><span class="n">set_exclusive_mouse</span><span class="p">(</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">setup</span><span class="p">()</span>
+    <span class="n">pyglet</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">run</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SensorCraft</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=&repo=&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">00 Flat World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_building_automatically.html">01 Building Automatically</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_3D_coordinate_system.html">02 3D Coordinate System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_show_current_block.html">03 Show Current Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_play_with_gravity.html">04 Play with Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_pickling_the_world.html">05 Pickling The World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_reading_the_pickled_world.html">06 Reading the Pickled World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      
+      
+      
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/00_flat_world.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

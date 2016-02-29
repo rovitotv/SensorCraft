@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>06 Reading the Pickled World &mdash; SensorCraft 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SensorCraft 1 documentation" href="index.html" />
+    <link rel="next" title="Conclusion" href="conclusion.html" />
+    <link rel="prev" title="05 Pickling The World" href="05_pickling_the_world.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="reading-the-pickled-world">
+<h1>06 Reading the Pickled World<a class="headerlink" href="#reading-the-pickled-world" title="Permalink to this headline">¶</a></h1>
+<p>This exercise builds on the previous exercise named 05_pickling_the_world, be
+sure to complete the previous exercise before you attempt this exercise.  The
+main idea of this exercise is be able to read in a file of a world you saved
+from the previous exercise.  This is helpful in the event that you create a
+super cool model and want to save it for future use.  The code presented in this
+exercise will assume the file to read is called &#8220;composite_world.pkl&#8221; and that
+the file exists or the load_pickle method will fail.  To get started with this
+programming exercise first copy the file 05_pickling_the_world.py python code to
+a new file  06_reading_the_pickled_world_TVR.py but replace TVR with your
+initials using the following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>cp 05_pickling_the_world.py 06_reading_the_pickled_world_TVR.py
+</pre></div>
+</div>
+<p>Next jump down to line 432 and create a new method called &#8220;load_pickle&#8221; which
+will read a pickle file and call the add_block method for each new block. The
+new &#8220;load_pickle&#8221; method is shown below:</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">load_pickle</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; this method will load the pickle and add it to the world</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="s">&#39;composite_world.pkl&#39;</span><span class="p">,</span> <span class="s">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">pkl_file</span><span class="p">:</span>
+            <span class="n">composite_world</span> <span class="o">=</span> <span class="n">cPickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">pkl_file</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">composite_key</span><span class="p">,</span> <span class="n">composite_value</span> <span class="ow">in</span> <span class="n">composite_world</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">add_block</span><span class="p">(</span><span class="n">composite_key</span><span class="p">,</span> <span class="n">composite_value</span><span class="p">,</span> <span class="n">immediate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The last thing we need to do is modify the method &#8220;on_key_press&#8221; so when the
+&#8220;O&#8221; key is pressed the &#8220;load_pickle&#8221; method is called.  The new &#8220;on_key_press&#8221;
+method is listed below:</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">on_key_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Called when the player presses a key. See pyglet docs for key</span>
+<span class="sd">        mappings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        symbol : int</span>
+<span class="sd">            Number representing the key that was pressed.</span>
+<span class="sd">        modifiers : int</span>
+<span class="sd">            Number representing any modifying keys that were pressed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">W</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">S</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">A</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">D</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">SPACE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="n">JUMP_SPEED</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">ESCAPE</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_exclusive_mouse</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">TAB</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flying</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">flying</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_keys</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">symbol</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">B</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buildWall</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">L</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">pickle_world</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">O</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">load_pickle</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SensorCraft</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=&repo=&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_flat_world.html">00 Flat World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="01_building_automatically.html">01 Building Automatically</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_3D_coordinate_system.html">02 3D Coordinate System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_show_current_block.html">03 Show Current Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_play_with_gravity.html">04 Play with Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_pickling_the_world.html">05 Pickling The World</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">06 Reading the Pickled World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      
+      
+      
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/06_reading_the_pickled_world.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

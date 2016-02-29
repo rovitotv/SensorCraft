@@ -1,0 +1,181 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>01 Building Automatically &mdash; SensorCraft 1 documentation</title>
+    
+    <link rel="stylesheet" href="_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="SensorCraft 1 documentation" href="index.html" />
+    <link rel="next" title="02 3D Coordinate System" href="02_3D_coordinate_system.html" />
+    <link rel="prev" title="00 Flat World" href="00_flat_world.html" />
+   
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9">
+
+  </head>
+  <body role="document">  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="building-automatically">
+<h1>01 Building Automatically<a class="headerlink" href="#building-automatically" title="Permalink to this headline">¶</a></h1>
+<p>For a Computer Scientist code runs the world but this is true for the everyday
+person on the planet earth even if they do not realize it.  Code is in your
+refrigerator, microwave, car,  TV, you name it code runs the device.  We live in
+the digital age.  One thing that is not apparent to most people is that when you
+have the source code to your device or game you can do almost anything that you
+can imagine.  When you don&#8217;t have the source code then you are beholden to the
+people that do have the code.  Think about your favorite game wouldn&#8217;t it be
+cool if you could make the rocket launch faster? Games is one thing but as a
+government Computer Scientist having the source code makes it possible to verify
+the system performance and understand the weakness or strength of the algorithm.
+Fortunately open source software exists and is thriving today making computers
+accessible to everyone. For this exercise we are going to use a simple for loop
+to build a wall by pushing the &#8216;b&#8217; key.  To get started with this programming
+exercise first copy 00_flat_world_TVR.py code to a new file
+01_building_automatically_TVR.py but replace TVR with your initials using the
+following command:</p>
+<div class="highlight-python"><div class="highlight"><pre>cp 00_flat_world_TVR.py 01_building_automatically_TVR.py
+</pre></div>
+</div>
+<p>The first thing we have to do is tell the program that the &#8216;b&#8217; key is worth
+listening for so jump down to line 733 and make the adjustments as shown
+below.</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">on_key_press</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">symbol</span><span class="p">,</span> <span class="n">modifiers</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Called when the player presses a key. See pyglet docs for key</span>
+<span class="sd">        mappings.</span>
+
+<span class="sd">        Parameters</span>
+<span class="sd">        ----------</span>
+<span class="sd">        symbol : int</span>
+<span class="sd">            Number representing the key that was pressed.</span>
+<span class="sd">        modifiers : int</span>
+<span class="sd">            Number representing any modifying keys that were pressed.</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">W</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">S</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">A</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">D</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">strafe</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">SPACE</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">dy</span> <span class="o">=</span> <span class="n">JUMP_SPEED</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">ESCAPE</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">set_exclusive_mouse</span><span class="p">(</span><span class="bp">False</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">TAB</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">flying</span> <span class="o">=</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">flying</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_keys</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="p">(</span><span class="n">symbol</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_keys</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">%</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">block</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">inventory</span><span class="p">[</span><span class="n">index</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="n">key</span><span class="o">.</span><span class="n">B</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">buildWall</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Take note the method we are working on is called &#8220;on_key_press&#8221; which is a name
+that makes a lot of sense because this code will be executed when a key is
+pressed.  Lots of keys exist on the keyboard and for this game we only care
+about the keys listed so we use a if-else if construct to perform a function
+when that particular key is pressed.  The code is obvious when symbol is
+equal to the constant key B then execute the method buildWall().  So next
+would be a good time to create the buildWall method.</p>
+<div class="highlight-python"><div class="highlight"><pre>    <span class="k">def</span> <span class="nf">buildWall</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot; Builds a simple wall</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">STONE</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">STONE</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span><span class="o">.</span><span class="n">add_block</span><span class="p">((</span><span class="n">x</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">10</span><span class="p">),</span> <span class="n">STONE</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The buildWall method is created at the end of the Window class, be sure to tab
+this method over two tabs or Python will be unhappy.  Python uses whitespace (in
+our case the tab character) to delimit program blocks, which is a genius feature
+of Python because you don&#8217;t have to count braces like in many other languages.
+A &#8220;for loop&#8221; is a critical structure in computer science and is often used by
+programmers to repeat instructions over and over again and  increment (or
+decrement) a variable.  In this case the variable is x and it will run over the
+range starting at 0 and ending before 10.  Notice that for each iteration of the
+for loop a block is added at a different elevation -1, 0, or 1.  We will explain
+3 dimensional coordinate systems in the next example.</p>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">SensorCraft</a></h1>
+
+
+
+
+
+<p>
+<iframe src="https://ghbtns.com/github-btn.html?user=&repo=&type=watch&count=true&size=large"
+  allowtransparency="true" frameborder="0" scrolling="0" width="200px" height="35px"></iframe>
+</p>
+
+
+<h3>Navigation</h3>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="README.html">README</a></li>
+<li class="toctree-l1"><a class="reference internal" href="intro.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="00_flat_world.html">00 Flat World</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">01 Building Automatically</a></li>
+<li class="toctree-l1"><a class="reference internal" href="02_3D_coordinate_system.html">02 3D Coordinate System</a></li>
+<li class="toctree-l1"><a class="reference internal" href="03_show_current_block.html">03 Show Current Block</a></li>
+<li class="toctree-l1"><a class="reference internal" href="04_play_with_gravity.html">04 Play with Gravity</a></li>
+<li class="toctree-l1"><a class="reference internal" href="05_pickling_the_world.html">05 Pickling The World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="06_reading_the_pickled_world.html">06 Reading the Pickled World</a></li>
+<li class="toctree-l1"><a class="reference internal" href="conclusion.html">Conclusion</a></li>
+</ul>
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      
+      
+      
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.3.1</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.6</a>
+      
+      |
+      <a href="_sources/01_building_automatically.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
