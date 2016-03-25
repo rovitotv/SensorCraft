@@ -59,7 +59,7 @@ Minecraft by Mojang
 Mojang the creators of Minecraft are liberal with their IP:
 https://account.mojang.com/documents/brand_guidelines
 
-We believe this product conforms to the Mojang's guides.
+We believe this product conforms to Mojang's guidelines.
 
 Enthought Canopy Express
 ------------------------
