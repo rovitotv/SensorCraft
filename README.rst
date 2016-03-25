@@ -9,6 +9,18 @@ Directorate  located in Dayton, Ohio created this guide to inspire kids of all
 ages to learn to program and at the same time get an idea of what it is like to
 be a Scientist or Engineer for the Air Force.
 
+To get started download the `latest release <https://github.com/rovitotv/SensorCraft/releases/latest>`_ 
+and unzip, then read the "START_HERE.html" file in your browser.  
+
+GitHub Release
+==============
+
+`v1.1 First CD release <https://github.com/rovitotv/SensorCraft/releases/download/v1.1/SensorCraftV1.1.zip>`_. 
+
+
+The latest version will always be on the `github project site 
+<https://github.com/rovitotv/SensorCraft>`_.
+
 CD Release
 ==========
 
@@ -27,11 +39,7 @@ Overview of the products in this directory for the CD release:
 * SensorCraftLogo is a directory with the CD cover and RYA generated art work
 * EnthoughtCanopy directory contains Windows and Mac versions of Enthought Canopy Express, please check the Enthought web site for the latest version
 
-GitHub Release
-==============
 
-The latest version will always be on the `github project site 
-<https://github.com/rovitotv/SensorCraft>`_.
 
 Logos and Third Party Materials
 ===============================
@@ -51,7 +59,7 @@ Minecraft by Mojang
 Mojang the creators of Minecraft are liberal with their IP:
 https://account.mojang.com/documents/brand_guidelines
 
-We believe this product conforms to both the Mojang's guides.
+We believe this product conforms to the Mojang's guides.
 
 Enthought Canopy Express
 ------------------------
@@ -85,6 +93,9 @@ The makefile within the project will build the html files with this command::
 
 Dependencies
 ------------
+
+pyglet
+sphinx to build the documentation
 
 
 
