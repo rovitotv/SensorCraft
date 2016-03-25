@@ -15,6 +15,8 @@ and unzip, then open the file "index.html" file in your browser.
 GitHub Release
 ==============
 
+`v1.3 Mores Updates to README <https://github.com/rovitotv/SensorCraft/releases/download/v1.3/SensorCraftV1.3.zip>`_
+
 `v1.2 Update to README <https://github.com/rovitotv/SensorCraft/releases/download/v1.2/SensorCraftV1.2.zip>`_
 
 `v1.1 First CD release <https://github.com/rovitotv/SensorCraft/releases/download/v1.1/SensorCraftV1.1.zip>`_
@@ -92,6 +94,9 @@ How To Build?
 The makefile within the project will build the html files with this command::
 
 	make html
+
+Don't forget to push the tags to github::
+	git push --tags
 
 Dependencies
 ------------
