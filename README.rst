@@ -96,7 +96,9 @@ The makefile within the project will build the html files with this command::
 	make html
 
 Don't forget to push the tags to github::
+
 	git push --tags
+	
 
 Dependencies
 ------------
