@@ -15,7 +15,9 @@ and unzip, then read the "START_HERE.html" file in your browser.
 GitHub Release
 ==============
 
-`v1.1 First CD release <https://github.com/rovitotv/SensorCraft/releases/download/v1.1/SensorCraftV1.1.zip>`_. 
+`v1.2 Update to README <https://github.com/rovitotv/SensorCraft/releases/download/v1.2/SensorCraftV1.2.zip>`_
+
+`v1.1 First CD release <https://github.com/rovitotv/SensorCraft/releases/download/v1.1/SensorCraftV1.1.zip>`_
 
 
 The latest version will always be on the `github project site 
