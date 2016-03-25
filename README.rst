@@ -9,7 +9,7 @@ Directorate  located in Dayton, Ohio created this guide to inspire kids of all
 ages to learn to program and at the same time get an idea of what it is like to
 be a Scientist or Engineer for the Air Force.
 
-To get started download the `latest release <https://github.com/rovitotv/SensorCraft/releases/latest>`_ 
+To get started download the `latest release's zip file <https://github.com/rovitotv/SensorCraft/releases/latest>`_ 
 and unzip, then read the "START_HERE.html" file in your browser.  
 
 GitHub Release
