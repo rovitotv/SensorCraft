@@ -50,7 +50,7 @@ Python
 Python is an open source programming language and it's logo is meant to be
 used on Python derived products see https://www.python.org/community/logos/
 
-We believe this product conforms to both the Python Software Foundation's 
+We believe this product conforms to the Python Software Foundation's 
 policy. 
 
 Minecraft by Mojang
@@ -94,8 +94,7 @@ The makefile within the project will build the html files with this command::
 Dependencies
 ------------
 
-pyglet
-sphinx to build the documentation
+pyglet and sphinx to build the documentation
 
 
 
