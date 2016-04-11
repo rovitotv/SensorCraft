@@ -74,7 +74,7 @@ we have aptly called pickle_world which is shown below.  First we create a new
 dictionary called composite_world with the line "composite_world = {}", then we
 use a for loop to iterate over the entire world.  A large if statement with a
 number of logical "or" are used to filter out only the blocks we want saved.  If
-a block is found of the COMPOSITE_ type then we save it to the dictionary called
+a block is found of the COMPOSITE type then we save it to the dictionary called
 composite_world.  Finally outside of the for loop we open a new file called
 composite_world.pkl and dump the dictionary composite_world to it.  We could of
 used a call to the "open" function but we used the Python "with"  statement
