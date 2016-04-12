@@ -5,7 +5,7 @@ README
 text ontop of image
 
 .. figure:: images/sensorcraft_lab_coat_small.jpg
-    :align: middle
+    :align: center
 
 text on bottom of image, image should be above
 
