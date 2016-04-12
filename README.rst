@@ -1,16 +1,8 @@
 README
 ******
 
-
-text ontop of image
-
 .. figure:: images/sensorcraft_lab_coat_small.jpg
     :align: center
-
-text on bottom of image, image should be above
-
-
-
 
 Most people are familiar with Minecraft (Minecraft is developed 
 by Mojang and not related to this programming tutorial nor do   
