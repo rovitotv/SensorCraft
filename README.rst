@@ -125,7 +125,7 @@ Makes changes to the README.rst to reflect a new release, then perform the
 following commands::
 
 	git commit -a
-	git tab -a v1.5 -m "version 1.5 - Directory consolidation"
+	git tag -a v1.5 -m "version 1.5 - Directory consolidation"
 	git push
 	git push -tags
 
