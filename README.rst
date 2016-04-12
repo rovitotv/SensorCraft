@@ -1,7 +1,7 @@
 README
 ******
 
-.. figure:: images/sensorcraft_lab_coat_small.jpg
+.. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
 
 Most people are familiar with Minecraft (Minecraft is developed 
