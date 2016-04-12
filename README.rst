@@ -1,13 +1,21 @@
 README
 ******
 
-Most people are familiar with Minecraft (Minecraft is developed by Mojang and
-not related to this programming tutorial nor do they endorse this tutorial) for
-this project we are using a Minecraft type environment created in the Python
-programming language. The Air Force Research Laboratory (AFRL) Sensors
-Directorate  located in Dayton, Ohio created this guide to inspire kids of all
-ages to learn to program and at the same time get an idea of what it is like to
-be a Scientist or Engineer for the Air Force.
+.. |DrSteve| image:: images/sensorcraft_lab_coat.jpg
+    :scale: 50%
+    :align: middle
+
++-----------------------------------------------------------------------------+
+| |DrSteve| | Most people are familiar with Minecraft (Minecraft is developed | 
+|           | by Mojang and not related to this programming tutorial nor do   | 
+|           | they endorse this tutorial) for this project we are using a     |
+|           | Minecraft type environment created in the Python programming    |
+|           | language. The Air Force Research Laboratory (AFRL) Sensors      |
+|           | Directorate located in Dayton, Ohio created this guide to       |
+|           | inspire kids of all ages to learn to program and at the same    |
+|           | time get an idea of what it is like to be a Scientist or        |
+|           | Engineer for the Air Force.                                     |
++-----------------------------------------------------------------------------+
 
 To get started download the `latest release's zip file <https://github.com/rovitotv/SensorCraft/releases/latest>`_ 
 and unzip, then open the file "index.html" file in your browser.  
