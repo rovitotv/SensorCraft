@@ -113,7 +113,7 @@ Don't forget to push the tags to github::
 Dependencies
 ------------
 
-pyglet and sphinx to build the documentation
+pyglet for OpenGL support and sphinx to build the documentation
 
 
 
