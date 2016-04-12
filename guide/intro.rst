@@ -86,5 +86,5 @@ Programming Exercises
 ---------------------
 
 In this chapter we dive in with several different fun examples of extending
-the SensorCraft game.  Review the examples and try the code all of the
-exercises have complete answers in the code directory. 
+the SensorCraft game.  Review the examples and try the code, all of the
+exercises have complete answers in the code directory in case you get stuck. 

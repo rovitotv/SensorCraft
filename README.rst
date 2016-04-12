@@ -1,8 +1,7 @@
 README
 ******
 
-.. |DrSteve| image:: images/sensorcraft_lab_coat.jpg
-    :scale: 48%
+.. |DrSteve| image:: images/sensorcraft_lab_coat_small.jpg
     :align: middle
 
 +-----------+-----------------------------------------------------------------+
