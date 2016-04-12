@@ -23,6 +23,8 @@ README
 GitHub Release
 ==============
 
+`v1.5  Directory consolidation <https://github.com/rovitotv/SensorCraft/releases/download/v1.5/SensorCraftV1.5.zip>`_
+
 `v1.4 Rocket Launch <https://github.com/rovitotv/SensorCraft/releases/download/v1.4/SensorCraftV1.4.zip>`_
 
 `v1.3 Mores Updates to README <https://github.com/rovitotv/SensorCraft/releases/download/v1.3/SensorCraftV1.3.zip>`_
@@ -52,6 +54,9 @@ Overview of the products in this directory for the CD release:
 * OriginalFoglemanCode the code started 
 * SensorCraftLogo is a directory with the CD cover and RYA generated art work
 * EnthoughtCanopy directory contains Windows and Mac versions of Enthought Canopy Express, please check the Enthought web site for the latest version
+
+The CD doesn't have the rocket launch chapter so consider updating from the
+latest github release.
 
 
 
@@ -98,17 +103,31 @@ documentation it creates html pages.
 References to Sphinx documentation:
 https://pythonhosted.org/an_example_pypi_project/sphinx.html
 
-How To Build?
--------------
+Steps to build and make release
+-------------------------------
 
-The makefile within the project will build the html files with this command::
+Assume the version we are going to release is 1.5 and will reside in
+~/temp/SensorCraftV1.5. The makefile within the project will build the html
+files with this command::
 
-	make html
+	make clean && make html
+	mkdir ~/temp/SensorCraftV1.5
+	cd guide/_build/html
+	cp -av * ~/temp/SensorCraftV1.5
+	cp ~/temp/SensorCraftV1.5/index.html ~/temp/SensorCraftV1.5/START_HERE.html
+	cd ../../..
+	cp -av code images ~/temp/SensorCraftV1.5/
+	cd ~/temp
+	zip -r SensorCraftV1.5.zip SensorCraftV1.5
+	cd /Volumes/SecureCode/SensorCraft
 
-Don't forget to push the tags to github::
+Makes changes to the README.rst to reflect a new release, then perform the
+following commands::
 
-	git push --tags
-	
+	git commit -a
+	git tab -a v1.5 -m "version 1.5 - Directory consolidation"
+	git push
+	git push -tags
 
 Dependencies
 ------------
