@@ -4,8 +4,14 @@ README
 .. |DrSteve| image:: images/sensorcraft_lab_coat_small.jpg
     :align: middle
 
+text ontop of image
+
 .. image:: images/sensorcraft_lab_coat_small.jpg
     :align: middle
+
+text on bottom of image, image should be above
+
+
 
 +-----------+-----------------------------------------------------------------+
 | |DrSteve| | Most people are familiar with Minecraft (Minecraft is developed | 
