@@ -4,6 +4,9 @@ README
 .. |DrSteve| image:: images/sensorcraft_lab_coat_small.jpg
     :align: middle
 
+.. image:: images/sensorcraft_lab_coat_small.jpg
+    :align: middle
+
 +-----------+-----------------------------------------------------------------+
 | |DrSteve| | Most people are familiar with Minecraft (Minecraft is developed | 
 |           | by Mojang and not related to this programming tutorial nor do   | 
