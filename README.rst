@@ -127,7 +127,7 @@ following commands::
 	git commit -a
 	git tag -a v1.5 -m "version 1.5 - Directory consolidation"
 	git push
-	git push -tags
+	git push --tags
 
 Dependencies
 ------------
