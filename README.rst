@@ -116,7 +116,7 @@ files with this command::
 	cp -av * ~/temp/SensorCraftV1.5
 	cp ~/temp/SensorCraftV1.5/index.html ~/temp/SensorCraftV1.5/START_HERE.html
 	cd ../../..
-	cp -av code images ~/temp/SensorCraftV1.5/
+	cp -av code ~/temp/SensorCraftV1.5/
 	cd ~/temp
 	zip -r SensorCraftV1.5.zip SensorCraftV1.5
 	cd /Volumes/SecureCode/SensorCraft
