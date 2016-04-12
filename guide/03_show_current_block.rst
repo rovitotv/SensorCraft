@@ -7,7 +7,7 @@ place the wrong block accidentally.  A simple way to remedy this problem
 is extend the "draw_label" method which we talked about in the previous chapter
 that shows the numbers in the upper left corner:
 
-.. figure::  images/fps_and_coords_text.png
+.. figure::  ../images/fps_and_coords_text.png
    :align:   center
 
 To get started with this programming exercise first copy
@@ -31,7 +31,7 @@ automatically we can examine the variable 'self.block' then build the proper
 text.  Jump down to line 836 where the draw_label method lives and we changed
 the code to look like the following:
 
-.. literalinclude:: code/03_show_current_block.py
+.. literalinclude:: ../code/03_show_current_block.py
 	:lines: 836-854
 
 After that change is made and you run the new game with the command::
@@ -40,7 +40,7 @@ After that change is made and you run the new game with the command::
 
 Now you can see the block selected in the label like the following example:
 
-.. figure::  images/BlockSelectionInLabel.png
+.. figure::  ../images/BlockSelectionInLabel.png
    :align:   center
 
 Another GUI element that is easy to change is the target cursor.  I actually
@@ -50,7 +50,7 @@ The SensorCraft code refers to the target cursor as a "reticle" which is the
 same thing but is less characters to type.  First to change the color look at
 the "draw_recticle" method starting on line 856:
 
- .. literalinclude:: code/03_show_current_block.py
+ .. literalinclude:: ../code/03_show_current_block.py
 	:lines: 856-861
 
 The OpenGL function "glColor3d" which is imported by pyglet.gl uses the RGB

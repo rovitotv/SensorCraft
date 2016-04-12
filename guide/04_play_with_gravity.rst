@@ -31,6 +31,6 @@ candy and drank 12 cans of soda, then you should set the WALKING_SPEED on line
 16 to 10.  My changes from the start of the program to line 32 look like the
 following:
 
-.. literalinclude:: code/04_play_with_gravity.py
+.. literalinclude:: ../code/04_play_with_gravity.py
 	:lines: 1 - 32
 

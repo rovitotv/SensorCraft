@@ -25,7 +25,7 @@ The first thing we have to do is tell the program that the 'b' key is worth
 listening for so jump down to line 733 and make the adjustments as shown
 below.
 
-.. literalinclude:: code/01_building_automatically.py
+.. literalinclude:: ../code/01_building_automatically.py
 	:lines: 703-734
 
 Take note the method we are working on is called "on_key_press" which is a name
@@ -36,7 +36,7 @@ when that particular key is pressed.  The code is obvious when symbol is
 equal to the constant key B then execute the method buildWall().  So next
 would be a good time to create the buildWall method.  
 
-.. literalinclude:: code/01_building_automatically.py
+.. literalinclude:: ../code/01_building_automatically.py
 	:lines: 848-855
 
 The buildWall method is created at the end of the Window class, be sure to tab

@@ -9,7 +9,7 @@ Now that you can save and load models that are made out of the new high tech
 composite blocks lets put those skills to use to load then launch a rocket.
 Rockets are amazing machines that the USAF uses to lift satellites to orbit. 
 
-.. figure::  images/Rocket.png
+.. figure::  ../images/Rocket.png
    :align:   center
 
 For this exercise we used the previous exercise  06_reading_the_pickeld_world to
@@ -28,21 +28,21 @@ class keep track of whether the rocket has been loaded or not.  This will
 prevent a player from loading the a rocket multiple times.  Jump down to line
 157 and add the code shown below:
 
-.. literalinclude:: code/07_rocket_launch.py
+.. literalinclude:: ../code/07_rocket_launch.py
 	:lines: 157-159
 
 Next jump down to line 445 and create a new method called "move_rocket_up" 
 which will move the rocket up one block.  The new "move_rocket_up" method is
 shown below:
 
-.. literalinclude:: code/07_rocket_launch.py
+.. literalinclude:: ../code/07_rocket_launch.py
 	:lines: 445-471
 
 Our rocket will include the advanced ability to land so at line 473 add a 
 new method called "move_rocket_down" which will move the rocket down one
 block.  The new "move_rocket_down" method is shown below:
 
-.. literalinclude:: code/07_rocket_launch.py
+.. literalinclude:: ../code/07_rocket_launch.py
 	:lines: 473-499
 
 The last thing we need to do is modify the familiar method "on_key_press" so
@@ -50,7 +50,7 @@ when the "L" key is pressed the "move_rocket_up" method is called and when
 the "K" key is pressed the "move_rocket_down" method is called.  The new
 "on_key_press" method is listed below:
 
-.. literalinclude:: code/07_rocket_launch.py
+.. literalinclude:: ../code/07_rocket_launch.py
 	:lines: 777-814
 
 Notice that the new methods "move_rocket_up" and "move_rocket_down" are both
@@ -72,7 +72,7 @@ A common phrase is "How do you eat an elephant? One bite at a time".
 First the model class needs several new variables added to the code so move
 down to line 161 and enter the code below:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 161-173
 
 One of the new variables we added was rocket altitude this is simply number
@@ -81,19 +81,19 @@ coordinate system in SensorCraft Y represents height above the ground plane.
 Next on line 466 you want to add a line that will increase the altitude one
 block every time the method "move_rocket_up" is called:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 459-486
 
 We should make the same change for the corresponding function 
 "move_rocket_down" which will decrease the altitude by one block every time
 the method is called:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 488-515
 
 Next we need to add two methods at the end of the model class:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 517-543
 
 The method "launch_rocket" is simple it checks to make sure the rocket
@@ -113,7 +113,7 @@ depending on rocket_altitude.
 Next we have to update the familiar method "on_key_press" to use the
 new methods we just created in the model class:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 822-857
 
 Finally we have to modify the update method in the window class.  Since
@@ -123,7 +123,7 @@ window class 1.0 / TICKS_PER_SEC or 1/60th of a second on line 608. All we
 have to do is call the process_rocket method in the model class using the
 code below on line 672:
 
-.. literalinclude:: code/07_rocket_launch_part2.py
+.. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 672 - 694
 
 

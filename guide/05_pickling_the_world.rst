@@ -20,7 +20,7 @@ line to "TEXTURE_PATH = 'composite_textures.png'" without the double quotes.
 At line 77 you want to add the new composite blocks so after all the changes
 above line 71 - 83 should look like the following chunk of code:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 72-83
 
 
@@ -28,13 +28,13 @@ Next we need to remove the code that placed the numbered stone blocks to
 form the number lines on the axis in exercise 3.  Your _initialize method
 should look like the following after all the code has been deleted:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 159-174
 
 We now have to add the new composite blocks to our character's inventory so
 modify line 472 so it looks like the following:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 472-473
 
 Recall back to the exercise 03_show_current_block and consider what 
@@ -43,7 +43,7 @@ if/else block you need to make adjustments for the new composite
 blocks that we added your new draw_label method should be something
 like:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 837-865
 
 How do we tell the game that it can save the world?  We could spend time and
@@ -53,7 +53,7 @@ is to simply press a key, in this case the "L" key and the method
 pickle_world will be called from the model class.  Below is what the new
 on_key_press method will look like, take note of the last elif:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 707-740
 
 Finally we implement the method that will save our world, or parts of the world
@@ -82,12 +82,12 @@ which will make sure the file is first opened correctly and then the file is
 automatically closed when the with statement completes. Append the function
 below to the bottom of the world class around line 413:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 414-429
 
 For the pickle module to work we have to import the cPickle module by adding
 a line at the top of the program around line 4:
 
-.. literalinclude:: code/05_pickling_the_world.py
+.. literalinclude:: ../code/05_pickling_the_world.py
     :lines: 1-5
 

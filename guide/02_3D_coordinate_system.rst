@@ -17,7 +17,7 @@ everything is a cube.
 Take note of the text in the upper left of the game window of SensorCraft, 
 what are all those numbers?  
 
-.. figure::  images/fps_and_coords_text.png
+.. figure::  ../images/fps_and_coords_text.png
    :align:   center
 
 The first number starting from the left is frames per second, which is a good
@@ -48,7 +48,7 @@ in real life, OpenGL will take a 2 dimensional image and wrap it around the
 cube.  Textures are generally stored in a simple image file, so if you open
 up texture.png you will see this:
 
-.. figure::  code/texture.png
+.. figure::  ../code/texture.png
    :align:   center
 
 The "texture.png" file originated from github when we cloned the repository and
@@ -61,7 +61,7 @@ same and be represented by the texture at coordinates 1, 1.  For this
 programming exercise we want to use numbered blocks so we generated a new
 texture file called "numbered_textures.png" that looks like the following:
 
-.. figure::  code/numbered_textures.png
+.. figure::  ../code/numbered_textures.png
    :align:   center
 
 In order to use the new "numbered_textures.png" file you want to change the
@@ -73,7 +73,7 @@ After changing the TEXTURE_PATH variable we want to add new block types for
 each of the numbered stone blocks starting at line 73 append the following
 codes:
 
-.. literalinclude:: code/02_3D_coordinate_system.py
+.. literalinclude:: ../code/02_3D_coordinate_system.py
 	:lines: 77-87
 
 To make sure you don't create a typo simply copy and paste the code from the
@@ -82,7 +82,7 @@ like we did in the previous programming exercise to create a number line on
 the x axis and z axis.  Here is what the initialize function should look like
 when you are done:
 
-.. literalinclude:: code/02_3D_coordinate_system.py
+.. literalinclude:: ../code/02_3D_coordinate_system.py
 	:lines: 164-185
 
 We are cleverly using a for loop and placing four blocks at a time, by using a
@@ -100,6 +100,6 @@ how you would modify the initialize method again to place number blocks on the
 y axis so we have three number lines that will represent our 3D world.  The 
 solution is below.
 
-.. literalinclude:: code/02_3D_coordinate_system_part2.py
+.. literalinclude:: ../code/02_3D_coordinate_system_part2.py
 	:lines: 164-192
 

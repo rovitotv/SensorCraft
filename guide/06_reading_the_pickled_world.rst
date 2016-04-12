@@ -18,12 +18,12 @@ Next jump down to line 432 and create a new method called "load_pickle" which
 will read a pickle file and call the add_block method for each new block. The
 new "load_pickle" method is shown below:
 
-.. literalinclude:: code/06_reading_the_pickled_world.py
+.. literalinclude:: ../code/06_reading_the_pickled_world.py
     :lines: 431-437
 
 The last thing we need to do is modify the method "on_key_press" so when the
 "O" key is pressed the "load_pickle" method is called.  The new "on_key_press"
 method is listed below:
 
-.. literalinclude:: code/06_reading_the_pickled_world.py
+.. literalinclude:: ../code/06_reading_the_pickled_world.py
     :lines: 716-751

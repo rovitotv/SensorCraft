@@ -19,7 +19,7 @@ of code from line 169 - line 187 by placing a '#' on the first character of each
 line. Below is what the _initalize method will look like after the code is
 "commented out".
 
-.. literalinclude:: code/00_flat_world.py
+.. literalinclude:: ../code/00_flat_world.py
 	:lines: 152-187
 
 Now run the program "python 00_flat_world_TVR.py".  Then walk in a straight line
@@ -30,5 +30,5 @@ line 886 and change the caption parameter from "Pyglet" to "Sensor Craft". Test
 your title change by running the program once again "python 00_flat_world.py", 
 then make sure the title has been changed. 
 
-.. literalinclude:: code/00_flat_world.py
+.. literalinclude:: ../code/00_flat_world.py
 	:lines: 885-891
