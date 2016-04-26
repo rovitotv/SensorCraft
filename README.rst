@@ -15,7 +15,12 @@ time get an idea of what it is like to be a Scientist or
 Engineer for the Air Force.  To get started download the        
 `latest release's zip file                                      
 <https://github.com/rovitotv/SensorCraft/releases/latest>`_  and
-unzip, then open the file "index.html" file in your browser.    
+unzip, then open the file "index.html" file in your browser. 
+
+A `YouTube video has been created <https://youtu.be/C9n1bS54AIw>`_
+to show students how to install SensorCraft and Enthought Canopy
+then run the examples.  The video is for Mac OS X but the process
+for Windows and Linux is similar.  
 
   
 GitHub Release
