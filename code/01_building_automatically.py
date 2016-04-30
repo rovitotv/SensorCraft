@@ -731,7 +731,7 @@ class Window(pyglet.window.Window):
             index = (symbol - self.num_keys[0]) % len(self.inventory)
             self.block = self.inventory[index]
         elif symbol == key.B:
-            self.buildWall()
+            self.build_wall()
 
     def on_key_release(self, symbol, modifiers):
         """ Called when the player releases a key. See pyglet docs for key
@@ -845,11 +845,11 @@ class Window(pyglet.window.Window):
         glColor3d(0, 0, 0)
         self.reticle.draw(GL_LINES)
 
-    def buildWall(self):
+    def build_wall(self):
         """ Builds a simple wall
 
         """
-        for x in range(0, 10):
+        for x in range(-10, 10):
             self.model.add_block((x, -1, -10), STONE)
             self.model.add_block((x, 0, -10), STONE)
             self.model.add_block((x, 1, -10), STONE)
