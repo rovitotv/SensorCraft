@@ -45,6 +45,17 @@ block.  The new "move_rocket_down" method is shown below:
 .. literalinclude:: ../code/07_rocket_launch.py
 	:lines: 473-499
 
+Next we need to make sure the position and rotation of Dr. Steve is correct
+so when the rocket appears we will be looking at the rocket and not somewhere
+else.  Feel free to adjust these numbers as you see fit, the rotation and
+position variable that we use in this guide are just suggestions.  A little
+experimentation goes along way when setting position and rotation variables.
+On line 521 - 531 of the Window constructor in the method called __init__
+change the self.position and self.rotation variables as shown below:
+
+.. literalinclude:: ../code/07_rocket_launch.py
+	:lines: 521-531
+
 The last thing we need to do is modify the familiar method "on_key_press" so
 when the "L" key is pressed the "move_rocket_up" method is called and when
 the "K" key is pressed the "move_rocket_down" method is called.  The new
