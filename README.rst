@@ -113,7 +113,7 @@ Assume the version we are going to release is 1.5 and will reside in
 ~/temp/SensorCraftV1.5. The makefile within the project will build the html
 files with this command::
 
-	cd /Volumes/SecureCode/SensorCraft
+	cd /Volumes/SecureCode/SensorCraft/guide
 	make clean && make html
 	mkdir ~/temp/SensorCraftV1.5
 	cd guide/_build/html
