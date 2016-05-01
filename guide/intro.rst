@@ -53,25 +53,124 @@ https://github.com/rovitotv/SensorCraft
 Install
 -------
 
-We are using Enthought Canopy for development.  Not sure why but Enthought's web
-site says pyglet comes with Canopy but it does not want to import.  So I used
-the following commands::
+To make things easier a `YouTube video has been created
+<https://youtu.be/C9n1bS54AIw>`_ to show students how to install SensorCraft and
+Enthought Canopy then run the examples.  The video is for Mac OS X but the
+process for Windows and Linux is similar.
 
-	enpkg setuptools 
-	enpkg pip 
-	pip install pyglet
+We are using Enthought Canopy for this guide.  Enthought offers a installer,
+editor, and shell in a single package. The editor is great for beginners!
+Enthought has a free version of Canopy called `Canopy Express
+<https://www.enthought.com/canopy-express>`_ which will work with this guide on
+the following operating system platforms Linux, Mac OS X, and Windows.  Download
+and install Enthought Canopy Express just like any other program on your
+operating system.  Start Canopy and you will be presented with the "Canopy
+Welcome Screen", select the Editor button.  See below:
 
-Now I can import pyglet which is required for this game!!!! Enthought has a
-free version of Canopy called `Canopy Express 
-<https://www.enthought.com/canopy-express>`_ which should work with this
-code on the following operating system platforms Linux, Mac OS X, and
-Windows.  
+.. figure:: ../images/canopy_welcome.jpg
+    :align: center
+
+After Enthought Canopy Express is installed you will need
+to get pyglet installed.  Pyglet is a wrapper for OpenGL and abstracts the
+complicated graphics programming.  To install pyglet enter this command in
+the Canopy shell::
+
+	! pip install pyglet
+
+A screen capture below shows where to enter the command into Canopy and the
+expected results:
+
+.. figure:: ../images/canopy_pyglet_install.jpg
+    :align: center
+
+Depending on the version of Canopy you are using a older version of pyglet
+might already be installed in which case you need to upgrade with the command::
+
+	! pip install pyglet --upgrade
+
+A screen capture below shows the upgrade process and the expected results:
+
+.. figure:: ../images/canopy_pyglet_upgrade.jpg
+    :align: center
+
+Now we can import pyglet and verify the version number like in the screen
+capture below:
+
+.. figure:: ../images/canopy_pyglet_version.jpg
+    :align: center
+
+After you have confirmed that the correct version of pyglet is installed, next
+you have to download the `latest SensorCraft release zip file
+<https://github.com/rovitotv/SensorCraft/releases/latest>`_.  The easiest thing
+is to unzip SensorCraft and place in the home directory.  SensorCraft is simply
+a bundle of html, py, and texture files.  This guide assumes that SensorCraft is
+installed in the home directory with the simple name of SensorCraft please
+rename to remove the version number.
+
+Changing Directory
+------------------
+
+It is critical that you change to the ~/SensorCraft/code directory before
+running each of the examples.  A screen shot of the change directory command
+with the Canopy Python Shell is below:
+
+.. figure:: ../images/canopy_change_directory.jpg
+    :align: center
+
+The home directory will have a different name based on operating system but
+the tilde key is universal within the Canopy Python shell.
+
+Running a SensorCraft Program
+-----------------------------
+
+Now that you have all the software installed and are in the correct directory
+you are now ready to run the basic SensorCraft program.  The base SensorCraft
+program is called main.py within the directory ~/SensorCraft/code. The first
+step is to edit main.py code with the following command in the Canopy
+Python shell window::
+	
+	edit main.py
+
+After this command is entered you will notice that the editor now shows the
+main.py code, you can now explore the code by scrolling up and down.  Take
+note the base game is less than 900 lines of code.  To run the game click on
+the green arrow in the top menu bar.  Below is a screen capture that
+shows what Canopy looks after the edit command is entered and has circled
+the green arror to run main.py:
+
+.. figure:: ../images/canopy_edit_main.jpg
+    :align: center
+
+To stop a SensorCraft program first you must push the escape key, sometimes
+known as esc, to defocus mouse control from SensorCraft back to your desktop.
+After you have restored mouse control simply close the SensorCraft game window
+like you would any program, usually clicking the "red x" in the window corner.
+
+Restart of the Python Kernel
+----------------------------
+
+Due to an issue with pyglet and Canopy Python shell you have to restart the
+Python kernel between runs of your program.  If you forget to restart the
+Python kernel you will receive an attribute error as shown below:
+
+.. figure:: ../images/canopy_attribute_error.jpg
+    :align: center
+
+This is easy to fix all you have to do is restart your kernel which can be
+done via the Canopy menu system as illustrated in picture below:
+
+.. figure:: ../images/canopy_kernel_restart_menu.jpg
+    :align: center
+
+Or as an alternative you can use a hot key on Mac OS X use command-. and on
+both Windows and Linux use ctrl-. the appropriate hot key combination is 
+shown in the menu bar.  
 
 Getting Started
 ---------------
 
 Each separate tutorial builds on the previous tutorial but they are designed
-to stand on there own so feel free to skip around.  The tutorials start with
+to stand on their own so feel free to skip around.  The tutorials start with
 simple objectives and builds to more difficult objectives. To get started first
 copy main.py into a new file name with the copy command like so::
 
@@ -88,3 +187,6 @@ Programming Exercises
 In this chapter we dive in with several different fun examples of extending
 the SensorCraft game.  Review the examples and try the code, all of the
 exercises have complete answers in the code directory in case you get stuck. 
+
+
+
