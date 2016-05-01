@@ -26,6 +26,8 @@ for Windows and Linux is similar.
 GitHub Release
 ==============
 
+`v1.6 Much improved install and run directions <https://github.com/rovitotv/SensorCraft/releases/download/v1.6/SensorCraftV1.6.zip>`_
+
 `v1.5  Directory consolidation <https://github.com/rovitotv/SensorCraft/releases/download/v1.5/SensorCraftV1.5.zip>`_
 
 `v1.4 Rocket Launch <https://github.com/rovitotv/SensorCraft/releases/download/v1.4/SensorCraftV1.4.zip>`_
@@ -116,7 +118,7 @@ files with this command::
 	cd /Volumes/SecureCode/SensorCraft/guide
 	make clean && make html
 	mkdir ~/temp/SensorCraftV1.5
-	cd guide/_build/html
+	cd _build/html
 	cp -av * ~/temp/SensorCraftV1.5
 	cp ~/temp/SensorCraftV1.5/index.html ~/temp/SensorCraftV1.5/START_HERE.html
 	cd ../../..
