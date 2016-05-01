@@ -42,8 +42,14 @@ good time to create the build_wall method.
 The build_wall method is created at the end of the Window class, be sure to tab
 this method over two tabs or Python will be unhappy.  Python uses whitespace (in
 our case the tab character) to delimit program blocks, which is a genius feature
-of Python because you don't have to count braces like in many other languages. A
-"for loop" is a critical structure in computer science and is often used by
+of Python because you don't have to count braces like in many other languages. 
+One of the key advantages of using Canopy is if the tabs are not correct it
+will highlight the error with a red underline as shown below:
+
+.. figure:: ../images/canopy_editor_tab_error.jpg
+    :align: center
+
+A "for loop" is a critical structure in computer science and is often used by
 programmers to repeat instructions over and over again and  increment (or
 decrement) a variable.  In this case the variable is x and it will run over the
 range starting at -10 and ending before 10.  Notice that for each iteration of
