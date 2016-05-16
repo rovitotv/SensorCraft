@@ -8,6 +8,10 @@ README
 .. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=latest
 	:target: http://sensorcraft.readthedocs.io/en/latest/?badge=latest
 	:alt: Latest Documentation Status
+	
+.. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=stable
+	:target: http://sensorcraft.readthedocs.io/en/stable/?badge=stable
+	:alt: Stable Documentation Status
 
 
     
