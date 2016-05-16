@@ -11,7 +11,6 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
-   README
    intro
    00_flat_world.rst
    01_building_automatically.rst

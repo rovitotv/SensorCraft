@@ -27,8 +27,8 @@ and eventually you will run into a stone wall.
 
 One more thing lets change the name of our game to Sensor Craft.  Skip down to
 line 886 and change the caption parameter from "Pyglet" to "Sensor Craft". Test
-your title change by running the program once again "python 00_flat_world.py", 
-then make sure the title has been changed. 
+your title change by running the program once again "python
+00_flat_world_tvr.py",  then make sure the title has been changed.
 
 .. literalinclude:: ../code/00_flat_world.py
 	:lines: 885-891

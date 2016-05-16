@@ -2,6 +2,9 @@
 01 Building Automatically
 =========================
 
+Building a Wall Automatically - Part 1
+--------------------------------------
+
 For a Computer Scientist code runs the world but this is true for the everyday
 person on the planet earth even if they do not realize it.  Code is in your
 refrigerator, microwave, car,  TV, you name it code runs the device.  We live in
@@ -55,3 +58,63 @@ decrement) a variable.  In this case the variable is x and it will run over the
 range starting at -10 and ending before 10.  Notice that for each iteration of
 the for loop a block is added at a different elevation -1, 0, or 1.  We will
 explain 3 dimensional coordinate systems in the next chapter.
+
+Building a Great Wall Automatically - Part 2
+--------------------------------------------
+
+By changing a single variable in the for loop the wall can be turned into a 
+great wall. Simply change the build_wall method as follows:
+
+.. literalinclude:: ../code/01_building_automatically_part2.py
+	:lines: 848-855 
+
+Notice that the x variable in the for loop now goes from -100 to 100 and the 
+wall goes past the boundaries of the world.  Below is a picture of what
+the wall should look like in the great wall form.
+
+.. figure:: ../images/building_automatically_great_wall.png
+    :align: center
+
+Building a Pyramid Automatically - Part 3
+-----------------------------------------
+
+Pyramids can be a challenging structure to build in a block based game because
+of all the repetition, pyramids are essentially smaller and smaller squares
+laid on-top of each other.  Before we build a pyramid lets make it easier to
+construct solid shapes by creating a method that takes two x, y, z points as
+parameters then adds blocks in between those two points.  Lets call this new
+method add_blocks() and place it in the model class on line 250.
+
+ .. literalinclude:: ../code/01_building_automatically_part3.py
+	:lines: 250-290
+
+The add_blocks() method is complicated so don't feel bad if you don't 
+understand it.  Python for loops use the range function which doesn't include
+the last number in the range so we have to add a +1 to the end of every range.
+To make sure the ranges increment in the proper direction we check the 
+arguments to determine the start of each of the ranges for x, y, and z.  Finally
+we use three for loops to fill in all the blocks similar to what we have done
+in previous chapters. It is reasonable not to care how the add_blocks() 
+method works and just use the method when you need to use it.  
+
+We changed the key from "b" to "p" to build the pyramid automatically as listed 
+in the code below:
+
+ .. literalinclude:: ../code/01_building_automatically_part3.py
+	:lines: 745-776
+
+Next we removed the method build_wall() and then created a new method called
+build_pyramid().  The build_pyramid() methods is shown below:
+
+ .. literalinclude:: ../code/01_building_automatically_part3.py
+	:lines: 890-912
+
+Basically the build_pyramid() method lays a square that has a width of -1 for
+every layer it creates.  The add_blocks() method is employed to make the
+build_pyramid() method simpler.  Now when the user presses the "p" key the
+following result should be shown:
+
+.. figure:: ../images/building_automatically_pyramid.png
+    :align: center
+
+
