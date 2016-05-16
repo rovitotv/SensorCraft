@@ -1,5 +1,6 @@
 README
 ******
+https://readthedocs.org/projects/SensorCraft/badge/
 
 .. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
