@@ -1,6 +1,14 @@
 README
 ******
-https://readthedocs.org/projects/SensorCraft/badge/
+
+.. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=latest
+:target: http://sensorcraft.readthedocs.io/en/latest/?badge=latest
+:alt: Latest Documentation Status
+
+.. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=stable
+:target: http://sensorcraft.readthedocs.io/en/latest/?badge=stable
+:alt: Stable Documentation Status
+
 
 .. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
