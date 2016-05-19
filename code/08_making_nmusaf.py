@@ -424,14 +424,14 @@ class Model(object):
         for world_key, world_value in self.world.items():
             save_world[world_key] = world_value
 
-        with open('save_world.pkl', 'wb') as output:
+        with open('nmusaf.pkl', 'wb') as output:
             cPickle.dump(save_world, output)
 
     def load_pickle(self):
         """ this method will load the pickle and add it to the world
         """
         print("loading world from save_world.pkl it could take a minute...")
-        with open('save_world.pkl', 'rb') as pkl_file:
+        with open('nmusaf.pkl', 'rb') as pkl_file:
             load_world = cPickle.load(pkl_file)
             for load_key, load_value in load_world.items():
                 self.add_block(load_key, load_value, immediate=True)
