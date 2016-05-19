@@ -3,7 +3,18 @@ README
 
 .. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
+    
+    
+.. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=latest
+	:target: http://sensorcraft.readthedocs.io/en/latest/?badge=latest
+	:alt: Latest Documentation Status
+	
+.. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=stable
+	:target: http://sensorcraft.readthedocs.io/en/stable/?badge=stable
+	:alt: Stable Documentation Status
 
+
+    
 Most people are familiar with Minecraft (Minecraft is developed 
 by Mojang and not related to this programming tutorial nor do   
 they endorse this tutorial) for this project we are using a     
