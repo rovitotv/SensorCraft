@@ -419,7 +419,7 @@ class Model(object):
             depending on how many blocks a user has used.  No filtering it
             saves the entire world.
         """
-        print("saving world to save_world.pkl it could take a minute....")
+        print("saving world to nmusaf.pkl it could take a minute....")
         save_world = {}
         for world_key, world_value in self.world.items():
             save_world[world_key] = world_value
@@ -430,7 +430,7 @@ class Model(object):
     def load_pickle(self):
         """ this method will load the pickle and add it to the world
         """
-        print("loading world from save_world.pkl it could take a minute...")
+        print("loading world from nmusaf.pkl it could take a minute...")
         with open('nmusaf.pkl', 'rb') as pkl_file:
             load_world = cPickle.load(pkl_file)
             for load_key, load_value in load_world.items():
