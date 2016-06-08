@@ -20,6 +20,7 @@ Contents:
    05_pickling_the_world.rst
    06_reading_the_pickled_world.rst
    07_rocket_launch.rst
+   08_making_nmusaf.rst
    conclusion.rst
 
 
