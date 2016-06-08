@@ -13,7 +13,7 @@ from pyglet.window import key, mouse
 TICKS_PER_SEC = 60
 
 # Size of sectors used to ease block loading.
-SECTOR_SIZE = 16
+SECTOR_SIZE = 32
 
 WALKING_SPEED = 5
 FLYING_SPEED = 15
