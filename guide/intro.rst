@@ -99,6 +99,13 @@ capture below:
 .. figure:: ../images/canopy_pyglet_version.jpg
     :align: center
 
+If you get a strange error when running SensorCraft code that states::
+
+    ImportError: cannot import name gl_info
+
+Then you are not using the correct version of pyglet be sure to follow the
+upgrade steps above and verify that you have the correct version.
+
 After you have confirmed that the correct version of pyglet is installed, next
 you have to download the `latest SensorCraft release zip file
 <https://github.com/rovitotv/SensorCraft/releases/latest>`_.  The easiest thing
