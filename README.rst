@@ -133,6 +133,7 @@ files with this command::
 	mkdir ~/temp/SensorCraftV1.5
 	cd _build/html
 	cp -av * ~/temp/SensorCraftV1.5
+	rm -rf ~/temp/SensorCraftV1.5/experimental
 	cp ~/temp/SensorCraftV1.5/index.html ~/temp/SensorCraftV1.5/START_HERE.html
 	cd ../../..
 	cp -av code ~/temp/SensorCraftV1.5/
