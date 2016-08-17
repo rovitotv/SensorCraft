@@ -159,6 +159,16 @@ Dependencies
 
 pyglet for OpenGL support and sphinx to build the documentation
 
+How to get release download count from GitHub
+---------------------------------------------
+
+GitHub has a RESTFul API so use the CURL commands::
+	
+	curl -i https://api.github.com/repos/rovitotv/SensorCraft/releases &> ~/temp/GHSensorCraftRelease.txt
+	cat ~/temp/GHSensorCraftRelease.txt | grep 'download_count'
+
+	
+
 
 
 
