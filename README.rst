@@ -15,13 +15,18 @@ README
 
 
 `Introduction YouTube video <https://youtu.be/nZWZNGVQwbM>`_ is now available!
-Most people are familiar with Minecraft (Minecraft is developed  by Mojang and
-not related to this programming tutorial nor do    they endorse this tutorial)
-for this project we are using a      Minecraft type environment created in the
-Python programming     language. The Air Force Research Laboratory (AFRL)
-Sensors       Directorate located in Dayton, Ohio created this guide to
-inspire kids of all ages to learn to program and at the same     time get an
-idea of what it is like to be a Scientist or         Engineer for the Air Force.
+Open source tools and code to teach 5th – 12th graders Python Programming within
+a Minecraft environment. Most people are familiar with Minecraft (Minecraft is 
+developed by Mojang and not related to this project nor do they endorse this 
+project), for this project we are using a “world of blocks” environment created 
+in the Python programming language that will allow children to explore 
+simulations in order to conduct their own scientific experiments. Kids can 
+change gravity, learn how to build structures programmatically, and even 
+launch a rocket.  The Air Force Research Laboratory (AFRL) Sensors Directorate 
+located in Dayton, Ohio created this project to inspire kids of all ages to 
+learn to program and at the same time get an idea of what it is like to be a 
+Scientist or Engineer for the United States Air Force.
+
 To get started download the         `latest release zip file
 <https://github.com/rovitotv/SensorCraft/releases/latest>`_  and unzip, then
 open the file "index.html" file in your browser.
