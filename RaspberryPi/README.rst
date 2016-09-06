@@ -14,3 +14,10 @@ On the RasPi the headers and library files are in
 This book is pretty good on Raspberry Pi Open GL ES and how to
 get it started:
 https://jan.newmarch.name/RPi/index.html
+
+dispmanx: This shows how to access the lower level API to speak with the
+video core GPU.  It is the lowest level first access to get to the GPU. This
+example program gets the width and height of the display.
+
+EGL: From the RPi viewpoint, EGL forms the link between native Dispmanx windows
+and the OpenGL ES API. 
