@@ -23,3 +23,6 @@ example program gets the width and height of the display.
 
 EGL: From the RPi viewpoint, EGL forms the link between native Dispmanx windows
 and the OpenGL ES API. 
+
+The github project here had a perfect example for getting the display to go:
+https://github.com/peterderivaz/pyopengles

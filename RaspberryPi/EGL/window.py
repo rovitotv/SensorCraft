@@ -1,15 +1,12 @@
-# Here is where TVR makes his money!
-# convert window.c to window.py and get the exact same results
-# we are going to use ctypes.
+# This project on github has the best example of getting the Raspberry Pi
+# display initalized and making two simple openGL commands:
+#       https://github.com/peterderivaz/pyopengles
 #
-# on Raspberry Pi
-# this program should make the display all red then output:
-# Got a Dispmanx window
-# Surface destroyed ok
-# Main context destroyed ok
-# Display terminated ok
-# EGL thread resources released ok
-# Dispmanx display rleased ok
+# The prepare_constants.py program scans the headers and creates egl.py and
+# gl2.py.  It seems to work well but no arguments or results are defined so
+# it might not be that robust.  
+#
+# Not working on the Mac yet with libAngel
 import ctypes
 import time
 import math
