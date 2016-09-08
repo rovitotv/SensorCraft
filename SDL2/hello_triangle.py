@@ -49,26 +49,26 @@ def load_shader(data, shader_type, shaderSrc):
     compiled = c_int(0)
 
     ogl.glCreateShader.restype = c_uint32
-    ogl.glCreateShader.args = [c_uint32,]
+    #ogl.glCreateShader.args = [c_uint32,]
     shader = ogl.glCreateShader(shader_type)
 
     if shader == 0:
         print("error in load_shader")
         sys.exit(200)
 
-    ogl.glShaderSource.args = [c_uint32, c_int32, c_char_p, c_void_p]
+    #ogl.glShaderSource.args = [c_uint32, c_int32, c_char_p, c_void_p]
     ogl.glShaderSource(shader, c_int32(1), byref(shaderSrc), None)
 
-    ogl.glCompileShader.args = [c_uint32, ]
+    #ogl.glCompileShader.args = [c_uint32, ]
     ogl.glCompileShader(shader)
 
     # GLAPI void APIENTRY glGetShaderiv (GLuint shader, GLenum pname, GLint *params);
-    ogl.glGetShaderiv.args = [c_uint32, c_uint32, c_void_p]
+    #ogl.glGetShaderiv.args = [c_uint32, c_uint32, c_void_p]
     ogl.glGetShaderiv(shader, GL_COMPILE_STATUS, byref(compiled))
     if compiled.value != 1:
         print("load_shader failed to compile code %d" % (compiled.value))
         info_length = c_int32(0)
-        ogl.glGetShaderiv.args = [c_uint32, c_uint32, c_int32]
+        #ogl.glGetShaderiv.args = [c_uint32, c_uint32, c_int32]
         ogl.glGetShaderiv(shader, GL_INFO_LOG_LENGTH, byref(info_length))
         if info_length.value > 1:
             N = 1024
@@ -126,7 +126,7 @@ if __name__ == '__main__':
                                  gl_Position = vPosition;
                               }""")
         fShaderStr = c_char_p("""
-                                precision mediump float;
+                                out vec4 gl_FragColor;
                                 void main()                                  
                                 {                                            
                                   gl_FragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );
