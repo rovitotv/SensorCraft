@@ -82,7 +82,7 @@ def init_raspi(data, depthbuffer=False):
     r = data['openegl'].eglBindAPI(EGL_OPENGL_ES_API)
     assert r
     if verbose:
-        print('numconfig=%d' % numconfig)
+        print('numconfig=%d' % numconfig.value)
     context_attribs = eglints( (EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE) )
     data['context'] = data['openegl'].eglCreateContext(data['display'], config,
                                     EGL_NO_CONTEXT,
