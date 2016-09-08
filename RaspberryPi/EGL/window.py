@@ -118,6 +118,14 @@ def init_mac(data):
     if data['platform'] != "Mac":
         print("Wrong platform for called init_raspi")
         sys.exit(200)
+    # glesMajorVersion = 2
+    # glesMinorVersion = 0
+    # requestedRender = EGL_PLATFORM_ANGLE_TYPE_DEFAULT_ANGLE
+    # width = 1280
+    # height = 720
+    # nm libangle_util.a | grep 'CreateOSWindow'
+    # 0000000000002e70 T __Z14CreateOSWindowv
+    # header files are /util/osx/
 
 if __name__ == '__main__':
     # parse command line options
