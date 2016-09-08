@@ -43,8 +43,11 @@ def check(e):
         print 'Error code',hex(e&0xffffffff)
     raise ValueError
 
-def init(data, depthbuffer=False):
+def init_raspi(data, depthbuffer=False):
     """Opens up the OpenGL library and prepares a window for display"""
+    if data['platform'] != "RasPi":
+        print("Wrong platform for called init_raspi")
+        sys.exit(200)
     b = data['bcm'].bcm_host_init()
     assert b==0
     data['display'] = data['openegl'].eglGetDisplay(EGL_DEFAULT_DISPLAY)
@@ -79,7 +82,7 @@ def init(data, depthbuffer=False):
     r = data['openegl'].eglBindAPI(EGL_OPENGL_ES_API)
     assert r
     if verbose:
-        print 'numconfig=',numconfig
+        print('numconfig=%d' % numconfig)
     context_attribs = eglints( (EGL_CONTEXT_CLIENT_VERSION, 2, EGL_NONE) )
     data['context'] = data['openegl'].eglCreateContext(data['display'], config,
                                     EGL_NO_CONTEXT,
@@ -111,6 +114,10 @@ def init(data, depthbuffer=False):
     r = data['openegl'].eglMakeCurrent(data['display'], data['surface'], data['surface'], data['context'])
     assert r
 
+def init_mac(data):
+    if data['platform'] != "Mac":
+        print("Wrong platform for called init_raspi")
+        sys.exit(200)
 
 if __name__ == '__main__':
     # parse command line options
@@ -134,10 +141,11 @@ if __name__ == '__main__':
         data['bcm'] = ctypes.CDLL("/opt/vc/lib/libbcm_host.so")
         data['opengles'] = ctypes.CDLL("/opt/vc/lib/libGLESv2.so")
         data['openegl'] = ctypes.CDLL("/opt/vc/lib/libEGL.so" )
-    else:
+        init_raspi(data)
+    elif data['platform'] == 'Mac':
         data['opengles'] = ctypes.CDLL("/Users/rovitotv/prog/angle/out/Release/libGLESv2.dylib")
         data['openegl'] = ctypes.CDLL("/Users/rovitotv/prog/angle/out/Release/libEGL.dylib")
-    init(data)
+        init_mac(data)
     print(data)
     # Normal OpenGLES commands
     data['opengles'].glClearColor ( eglfloat(1.0), eglfloat(0.0), eglfloat(0.0), eglfloat(1.0) )
