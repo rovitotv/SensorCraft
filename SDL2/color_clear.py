@@ -11,7 +11,6 @@ from sdl2 import *
 
 GL_COLOR_BUFFER_BIT = 0x00004000
 
-
 def check_sdl_error(SDL_function):
     error = SDL_GetError()
     if error:
@@ -42,6 +41,11 @@ def init_mac(data):
     SDL_GL_SetSwapInterval(1)
 
 def init_raspi(data):
+    # do we need the code below or does SDL do this for us?
+    # if data['platform'] != "RasPi":
+    #     print("Wrong platform for called init_raspi")
+    #     sys.exit(200)
+    # b = data['bcm'].bcm_host_init()    
     SDL_Init(SDL_INIT_VIDEO)
     check_sdl_error("SDL_Init")
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8)

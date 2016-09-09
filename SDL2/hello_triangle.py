@@ -5,7 +5,7 @@ import math
 import argparse
 import sys
 import os
-os.environ["PYSDL2_DLL_PATH"] = "/Users/rovitotv/prog/SDL2-2.0.4/build/.libs"
+os.environ["PYSDL2_DLL_PATH"] = os.environ["HOME"] + "/prog/SDL2-2.0.4/build/.libs"
 from sdl2 import *
 
 GL_COLOR_BUFFER_BIT = 0x00004000
@@ -13,7 +13,6 @@ GL_COMPILE_STATUS   = 0x8B81
 GL_VERTEX_SHADER    = 0x8B31
 GL_FRAGMENT_SHADER  = 0x8B30
 GL_INFO_LOG_LENGTH  = 0x8B84
-
 
 def check_sdl_error(SDL_function):
     error = SDL_GetError()
@@ -42,6 +41,27 @@ def init_mac(data):
 
     # this makes our buffer swap syncronized with the monitor's vertical refresh
     SDL_GL_SetSwapInterval(1)
+
+def init_raspi(data):
+    # do we need the code below or does SDL do this for us?
+    # if data['platform'] != "RasPi":
+    #     print("Wrong platform for called init_raspi")
+    #     sys.exit(200)
+    # b = data['bcm'].bcm_host_init()     
+    SDL_Init(SDL_INIT_VIDEO)
+    check_sdl_error("SDL_Init")
+    SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8)
+    SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8)
+    SDL_GL_SetAttribute(SDL_GL_BLUE_SIZE, 8)
+    SDL_GL_SetAttribute(SDL_GL_DEPTH_SIZE, 16)
+    SDL_GL_SetAttribute(SDL_GL_DOUBLEBUFFER, 1)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0)
+    SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES)
+    data['window'] = SDL_CreateWindow(b"Minimal SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 512, 512, SDL_WINDOW_OPENGL)
+    check_sdl_error("SDL_CreateWindow")
+    data['context'] = SDL_GL_CreateContext(data['window'])
+    check_sdl_error("SDL_GL_CreateContext")    
 
 def load_shader(data, shader_type, shaderSrc):
     ogl = data['opengl']
@@ -82,7 +102,7 @@ def load_shader(data, shader_type, shaderSrc):
     return shader
 
 
-def cleanup_mac(data):
+def cleanup(data):
     SDL_GL_DeleteContext(data['context'])
     SDL_DestroyWindow(data['window'])
     SDL_Quit()
@@ -110,7 +130,7 @@ if __name__ == '__main__':
         data['bcm'] = CDLL("/opt/vc/lib/libbcm_host.so")
         data['opengles'] = CDLL("/opt/vc/lib/libGLESv2.so")
         data['openegl'] = CDLL("/opt/vc/lib/libEGL.so" )
-       # init_raspi(data)
+        init_raspi(data)
     elif data['platform'] == 'Mac':
         # headers are here:
         #  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers
@@ -133,8 +153,9 @@ if __name__ == '__main__':
                                 }""")
         data['vertexShader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
         data['fragmentShader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
-        time.sleep(5)
-        cleanup_mac(data)
+    
+    time.sleep(5)
+    cleanup(data)
     # Normal OpenGLES commands
     # data['opengles'].glClearColor ( eglfloat(1.0), eglfloat(0.0), eglfloat(0.0), eglfloat(1.0) )
     # data['opengles'].glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
