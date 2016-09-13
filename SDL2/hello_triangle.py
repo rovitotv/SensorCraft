@@ -1,4 +1,6 @@
 # next we have to get this code working on Raspberry Pi, it now works on Mac
+# this program is designed to duplicate the "Hello_Triangle.c" program in
+# chapter 2 from OpenGL ES
 from ctypes import *
 import time
 import math
@@ -107,7 +109,6 @@ def cleanup(data):
     SDL_DestroyWindow(data['window'])
     SDL_Quit()
 
-
 if __name__ == '__main__':
     # parse command line options
     parser = argparse.ArgumentParser()
@@ -145,11 +146,12 @@ if __name__ == '__main__':
                               {                           
                                  gl_Position = vPosition;
                               }""")
-        fShaderStr = c_char_p("""
-                                out vec4 gl_FragColor;
-                                void main()                                  
+        # take note this shader below is different for OpenGL and OpenGL ES
+        fShaderStr = c_char_p("""           
+                                uniform vec4 vColor;
+                                void main(void)                                  
                                 {                                            
-                                  gl_FragColor = vec4 ( 1.0, 0.0, 0.0, 1.0 );
+                                  gl_FragColor = vColor;
                                 }""")
         data['vertexShader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
         data['fragmentShader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
