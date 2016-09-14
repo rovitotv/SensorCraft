@@ -15,6 +15,7 @@ GL_COMPILE_STATUS   = 0x8B81
 GL_VERTEX_SHADER    = 0x8B31
 GL_FRAGMENT_SHADER  = 0x8B30
 GL_INFO_LOG_LENGTH  = 0x8B84
+GL_LINK_STATUS      = 0x8B82
 
 def check_sdl_error(SDL_function):
     error = SDL_GetError()
@@ -103,6 +104,39 @@ def load_shader(data, shader_type, shaderSrc):
 
     return shader
 
+def init_common(data):
+    '''init code that is common to all Platforms'''
+    program_object = data['opengl'].glCreateProgram()
+    if program_object == 0:
+        print("program object = 0 this is bad")
+        sys.exit(200)
+    data['opengl'].glAttachShader(program_object, data['vertex_shader'])
+    data['opengl'].glAttachShader(program_object, data['fragment_shader'])
+    data['opengl'].glBindAttribLocation(program_object, 0, "vPosition")
+    data['opengl'].glLinkProgram(program_object)
+    # GLAPI void APIENTRY glGetProgramiv (GLuint program, GLenum pname, GLint *params);
+    linked = c_int(9)
+    data['opengl'].glGetProgramiv(program_object, GL_LINK_STATUS, byref(linked))
+    if not linked:
+        info_length = c_int32(0)
+        data['opengl'].glGetProgramiv(program_object, GL_INFO_LOG_LENGTH, byref(info_length))
+        if info_length.value > 1:
+            N = 1024
+            info_log = (c_char * N)()
+            log_length = c_int()
+            data['opengl'].glGetShaderInfoLog(program_object, N, byref(log_length), byref(info_log))
+            print("failed to link:\n%s\n" % (info_log.value))
+
+        data['opengl'].glDeleteProgram()
+        return False
+    else:
+        print('shaders have been linked %d' % linked.value)
+
+    data['program_object'] = program_object
+    data['opengl'].glClearColor(c_float(0.0), c_float(0.0), c_float(0.0), c_float(0.0))
+    return True
+
+
 
 def cleanup(data):
     SDL_GL_DeleteContext(data['context'])
@@ -153,9 +187,10 @@ if __name__ == '__main__':
                                 {                                            
                                   gl_FragColor = vColor;
                                 }""")
-        data['vertexShader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
-        data['fragmentShader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
-    
+        data['vertex_shader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
+        data['fragment_shader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
+    init_common(data)
+    draw(data)
     time.sleep(5)
     cleanup(data)
     # Normal OpenGLES commands
