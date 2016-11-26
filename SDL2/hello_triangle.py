@@ -1,6 +1,9 @@
-# next we have to get this code working on Raspberry Pi, it now works on Mac
+# Next we have to get this code working on Raspberry Pi, it now works on Mac
+# A black triangle is displayed in a red background.
 # this program is designed to duplicate the "Hello_Triangle.c" program in
-# chapter 2 from OpenGL ES
+# chapter 2 from OpenGL ES.  The code works but we have to perform serious
+# work on the OpenGL to Ctypes bridge is functional but it is not clean and is
+# difficult to use.
 from ctypes import *
 import time
 import math
@@ -16,6 +19,9 @@ GL_VERTEX_SHADER    = 0x8B31
 GL_FRAGMENT_SHADER  = 0x8B30
 GL_INFO_LOG_LENGTH  = 0x8B84
 GL_LINK_STATUS      = 0x8B82
+GL_FLOAT            = 0x1406 # defined in gl.h line 240
+GL_FALSE            = 0x0000 # defined in gl.h line 156
+GL_TRIANGLES        = 0x0004
 
 def check_sdl_error(SDL_function):
     error = SDL_GetError()
@@ -26,7 +32,9 @@ def check_sdl_error(SDL_function):
 
 def init_mac(data):
     SDL_Init(SDL_INIT_VIDEO)
-    data['window'] = SDL_CreateWindow(b"Hello world", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 320, 240, SDL_WINDOW_OPENGL)
+    data['width'] = 320
+    data['height'] = 320
+    data['window'] = SDL_CreateWindow(b"Hello world", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, data['width'], data['height'], SDL_WINDOW_OPENGL)
     check_sdl_error("SDL_CreateWindow")
     data['context'] = SDL_GL_CreateContext(data['window'])
     check_sdl_error("SDL_GL_CreateContext")
@@ -133,15 +141,29 @@ def init_common(data):
         print('shaders have been linked %d' % linked.value)
 
     data['program_object'] = program_object
-    data['opengl'].glClearColor(c_float(0.0), c_float(0.0), c_float(0.0), c_float(0.0))
+    data['opengl'].glClearColor(c_float(1.0), c_float(0.0), c_float(0.0), c_float(0.0))
     return True
-
-
 
 def cleanup(data):
     SDL_GL_DeleteContext(data['context'])
     SDL_DestroyWindow(data['window'])
     SDL_Quit()
+
+def draw(data):
+    GL_Float_Array = c_float * 9
+    vVertices = GL_Float_Array(0.0, 0.5, 0.0,
+                        -0.5, -0.5, 0.0,
+                        0.5, -0.5, 0.0)
+
+    # GLint ( x ) , GLint ( y ) , GLsizei ( width ) , GLsizei ( height ) 
+    data['opengl'].glViewport(c_int32(0), c_int32(0), c_uint32(data['width']), c_uint32(data['height']))
+    data['opengl'].glClear(GL_COLOR_BUFFER_BIT)
+    data['opengl'].glUseProgram(data['program_object'])
+    # void glVertexAttribPointer(   GLuint index, GLint size, GLenum type, GLboolean normalized, GLsizei stride, GLvoid * pointer);
+    data['opengl'].glVertexAttribPointer(c_uint32(0), c_int32(3), c_uint32(GL_FLOAT), c_bool(GL_FALSE), c_uint32(0), byref(vVertices))
+    data['opengl'].glEnableVertexAttribArray(c_uint32(0))
+    data['opengl'].glDrawArrays(c_uint32(GL_TRIANGLES), c_int32(0), c_uint32(3))
+    SDL_GL_SwapWindow(data['window'])
 
 if __name__ == '__main__':
     # parse command line options
@@ -191,12 +213,5 @@ if __name__ == '__main__':
         data['fragment_shader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
     init_common(data)
     draw(data)
-    time.sleep(5)
+    time.sleep(10)
     cleanup(data)
-    # Normal OpenGLES commands
-    # data['opengles'].glClearColor ( eglfloat(1.0), eglfloat(0.0), eglfloat(0.0), eglfloat(1.0) )
-    # data['opengles'].glClear(GL_COLOR_BUFFER_BIT|GL_DEPTH_BUFFER_BIT)
-    # # Send this to make the graphics drawn visible
-    # data['openegl'].eglSwapBuffers(data['display'], data['surface'])
-    # wait for 10 seconds
-    #time.sleep(10)
