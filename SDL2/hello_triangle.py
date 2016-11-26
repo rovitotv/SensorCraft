@@ -1,4 +1,5 @@
-# Next we have to get this code working on Raspberry Pi, it now works on Mac
+# This example now works on the Raspberry Pi and the Mac!
+# 
 # A black triangle is displayed in a red background.
 # this program is designed to duplicate the "Hello_Triangle.c" program in
 # chapter 2 from OpenGL ES.  The code works but we have to perform serious
@@ -32,8 +33,8 @@ def check_sdl_error(SDL_function):
 
 def init_mac(data):
     SDL_Init(SDL_INIT_VIDEO)
-    data['width'] = 320
-    data['height'] = 320
+    data['width'] = 800
+    data['height'] = 480
     data['window'] = SDL_CreateWindow(b"Hello world", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, data['width'], data['height'], SDL_WINDOW_OPENGL)
     check_sdl_error("SDL_CreateWindow")
     data['context'] = SDL_GL_CreateContext(data['window'])
@@ -53,13 +54,11 @@ def init_mac(data):
     # this makes our buffer swap syncronized with the monitor's vertical refresh
     SDL_GL_SetSwapInterval(1)
 
-def init_raspi(data):
-    # do we need the code below or does SDL do this for us?
-    # if data['platform'] != "RasPi":
-    #     print("Wrong platform for called init_raspi")
-    #     sys.exit(200)
-    # b = data['bcm'].bcm_host_init()     
+def init_raspi(data):  
+    # the Raspberry Pi Display is 800 x 480
     SDL_Init(SDL_INIT_VIDEO)
+    data['width'] = 800
+    data['height'] = 480
     check_sdl_error("SDL_Init")
     SDL_GL_SetAttribute(SDL_GL_RED_SIZE, 8)
     SDL_GL_SetAttribute(SDL_GL_GREEN_SIZE, 8)
@@ -69,7 +68,7 @@ def init_raspi(data):
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MAJOR_VERSION, 2)
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_MINOR_VERSION, 0)
     SDL_GL_SetAttribute(SDL_GL_CONTEXT_PROFILE_MASK, SDL_GL_CONTEXT_PROFILE_ES)
-    data['window'] = SDL_CreateWindow(b"Minimal SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 512, 512, SDL_WINDOW_OPENGL)
+    data['window'] = SDL_CreateWindow(b"Minimal SDL2 Example", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, data['width'], data['height'], SDL_WINDOW_OPENGL)
     check_sdl_error("SDL_CreateWindow")
     data['context'] = SDL_GL_CreateContext(data['window'])
     check_sdl_error("SDL_GL_CreateContext")    
@@ -183,35 +182,57 @@ if __name__ == '__main__':
         # default to RasPi
         data['platform'] = 'RasPi'
 
-    if data['platform'] == 'RasPi':
-        data['bcm'] = CDLL("/opt/vc/lib/libbcm_host.so")
-        data['opengles'] = CDLL("/opt/vc/lib/libGLESv2.so")
-        data['openegl'] = CDLL("/opt/vc/lib/libEGL.so" )
-        init_raspi(data)
-    elif data['platform'] == 'Mac':
-        # headers are here:
-        #  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers
-        data['opengl'] = CDLL("/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib")
-        init_mac(data)
-        data['opengl'].glClearColor(c_float(1.0), c_float(0.0), c_float(0.0), c_float(1.0))
-        data['opengl'].glClear(GL_COLOR_BUFFER_BIT)
-        SDL_GL_SwapWindow(data['window'])
-        vShaderStr = c_char_p("""
-                              attribute vec4 vPosition;
-                              void main()                 
-                              {                           
-                                 gl_Position = vPosition;
-                              }""")
-        # take note this shader below is different for OpenGL and OpenGL ES
-        fShaderStr = c_char_p("""           
-                                uniform vec4 vColor;
-                                void main(void)                                  
-                                {                                            
-                                  gl_FragColor = vColor;
-                                }""")
-        data['vertex_shader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
-        data['fragment_shader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
-    init_common(data)
-    draw(data)
-    time.sleep(10)
-    cleanup(data)
+    try:
+        if data['platform'] == 'RasPi':
+            data['bcm'] = CDLL("/opt/vc/lib/libbcm_host.so")
+            data['opengl'] = CDLL("/opt/vc/lib/libGLESv2.so")
+            init_raspi(data)
+            data['opengl'].glClearColor(c_float(1.0), c_float(0.0), c_float(0.0), c_float(1.0))
+            data['opengl'].glClear(GL_COLOR_BUFFER_BIT)
+            SDL_GL_SwapWindow(data['window'])
+            vShaderStr = c_char_p("""
+                                  attribute vec4 vPosition;
+                                  void main()                 
+                                  {                           
+                                     gl_Position = vPosition;
+                                  }""")
+            # take note this shader below is different for OpenGL and OpenGL ES
+            fShaderStr = c_char_p("""           
+                                    precision mediump float;
+                                    void main(void)                                  
+                                    {                                            
+                                      gl_FragColor = vec4 ( 0.0, 0.0, 0.0, 1.0 );
+                                    }""")
+            data['vertex_shader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
+            data['fragment_shader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)        
+        elif data['platform'] == 'Mac':
+            # headers are here:
+            #  /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.11.sdk/System/Library/Frameworks/OpenGL.framework/Headers
+            data['opengl'] = CDLL("/System/Library/Frameworks/OpenGL.framework/Libraries/libGL.dylib")
+            init_mac(data)
+            data['opengl'].glClearColor(c_float(1.0), c_float(0.0), c_float(0.0), c_float(1.0))
+            data['opengl'].glClear(GL_COLOR_BUFFER_BIT)
+            SDL_GL_SwapWindow(data['window'])
+            vShaderStr = c_char_p("""
+                                  attribute vec4 vPosition;
+                                  void main()                 
+                                  {                           
+                                     gl_Position = vPosition;
+                                  }""")
+            # take note this shader below is different for OpenGL and OpenGL ES
+            fShaderStr = c_char_p("""           
+                                    uniform vec4 vColor;
+                                    void main(void)                                  
+                                    {                                            
+                                      gl_FragColor = vColor;
+                                    }""")
+            data['vertex_shader'] = load_shader(data, GL_VERTEX_SHADER, vShaderStr)
+            data['fragment_shader'] = load_shader(data, GL_FRAGMENT_SHADER, fShaderStr)
+
+        init_common(data)
+        draw(data)
+        time.sleep(10)
+        cleanup(data)
+    except:
+        print "Unexpected error!!!! Trying to cleanup SDL."
+        cleanup(data)
