@@ -181,7 +181,6 @@ if __name__ == '__main__':
     else:
         # default to RasPi
         data['platform'] = 'RasPi'
-
     try:
         if data['platform'] == 'RasPi':
             data['bcm'] = CDLL("/opt/vc/lib/libbcm_host.so")

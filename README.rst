@@ -34,7 +34,8 @@ open the file "index.html" file in your browser.
 A `YouTube video has been created <https://youtu.be/C9n1bS54AIw>`_
 to show students how to install SensorCraft and Enthought Canopy
 then run the examples.  The video is for Mac OS X but the process
-for Windows and Linux is similar.  
+for Windows and Linux is similar.  **SensorCraft requires Python 2.7, make sure
+you install a version of Enthought Canopy that supports Python 2.7.**
 
   
 GitHub Release
