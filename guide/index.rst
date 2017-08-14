@@ -22,6 +22,7 @@ Contents:
    07_rocket_launch.rst
    08_making_nmusaf.rst
    conclusion.rst
+   frequently_asked_questions.rst
 
 
 

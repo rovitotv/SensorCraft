@@ -144,7 +144,9 @@ Changing Directory
 ------------------
 
 It is critical that you change to the ~/SensorCraft/code directory before
-running each of the examples.  A screen shot of the change directory command
+running each of the examples.  If you don't change directory you will
+receive an error message of "IOError: [Errno 2] No such file or directory: 
+'texture.png'".  A screen shot of the change directory command
 with the Canopy Python Shell is below:
 
 .. figure:: ../images/canopy_change_directory.jpg
