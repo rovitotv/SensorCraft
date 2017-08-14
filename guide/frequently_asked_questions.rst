@@ -48,7 +48,6 @@ The error is easily rectified by carefully reading the `install section of the
 guide <http://sensorcraft.readthedocs.io/en/latest/intro.html#install>`_.
 
 
-
 Can I play SensorCraft on my tablet?
 ------------------------------------
 
