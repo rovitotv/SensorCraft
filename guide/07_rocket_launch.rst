@@ -137,5 +137,26 @@ code below on line 672:
 .. literalinclude:: ../code/07_rocket_launch_part2.py
 	:lines: 672 - 694
 
+Dr. Steve Rides the Rocket - Part 3
+-----------------------------------
+
+In part 1 and part 2 of the rocket launch, Dr. Steve was on the ground while the
+rocket was launched. In part 3, we are going to put Dr. Steve on top of the
+rocket so that he rides it. First, we are going to add to the rocket process on
+line 695 so that Dr. Steve goes up as the rocket goes up. Add the line "if
+self.model.rocket_launched:" and then add
+"self.position = (10, self.model.rocket_altitude + 19, 2)" below that. The new
+position is where Dr. Steve will go when the rocket is launched, which is on top
+of the rocket. What you have now should look like this:
+
+.. literalinclude:: ../code/07_rocket_launch_part3.py
+        :lines: 696 - 702
+
+Finally, we need to add "self.position = (10, 20, 2)" on line 855. This makes it so
+that when you press "L" to launch the rocket, Dr.Steve is put on top of the
+rocket so that he can ride it. The code should look similar to this:
+
+.. literalinclude:: ../code/07_rocket_launch_part3.py
+        :lines: 862 - 864
 
 
