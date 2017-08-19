@@ -41,6 +41,8 @@ you install a version of Enthought Canopy that supports Python 2.7.**
 GitHub Release
 ==============
 
+`v1.8 Thanks to Fladam Dr. Steve can now ride the rocket, updated Enthought install directions to reflect new version, and added a FAQ <https://github.com/rovitotv/SensorCraft/releases/download/v1.8/SensorCraftV1.8.zip>`_
+
 `v1.7.1 Changed gravity and jump height back to default <https://github.com/rovitotv/SensorCraft/releases/download/v1.7.1/SensorCraftV1.7.1.zip>`_
 
 `v1.7 Crushed bugs and added a new chapter on creating the NMUSAF <https://github.com/rovitotv/SensorCraft/releases/download/v1.7/SensorCraftV1.7.zip>`_
@@ -56,7 +58,6 @@ GitHub Release
 `v1.2 Update to README <https://github.com/rovitotv/SensorCraft/releases/download/v1.2/SensorCraftV1.2.zip>`_
 
 `v1.1 First CD release <https://github.com/rovitotv/SensorCraft/releases/download/v1.1/SensorCraftV1.1.zip>`_
-
 
 The latest version will always be on the `github project site 
 <https://github.com/rovitotv/SensorCraft>`_.
@@ -139,7 +140,6 @@ files with this command::
 	mkdir ~/temp/SensorCraftV1.5
 	cd _build/html
 	cp -av * ~/temp/SensorCraftV1.5
-	rm -rf ~/temp/SensorCraftV1.5/experimental
 	cp ~/temp/SensorCraftV1.5/index.html ~/temp/SensorCraftV1.5/START_HERE.html
 	cd ../../..
 	cp -av code ~/temp/SensorCraftV1.5/
