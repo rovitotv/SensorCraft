@@ -152,11 +152,12 @@ of the rocket. What you have now should look like this:
 .. literalinclude:: ../code/07_rocket_launch_part3.py
         :lines: 696 - 702
 
-Finally, we need to add "self.position = (10, 20, 2)" on line 855. This makes it so
-that when you press "L" to launch the rocket, Dr.Steve is put on top of the
-rocket so that he can ride it. The code should look similar to this:
+Finally, we need to add "if self.model.rocket_loaded:" on line 856, and then add
+"self.position = (10, 20, 2)" below that. This makes it sothat when you press
+"L" to launch the rocket, Dr.Steve is put on top of the rocket so that he can
+ride it. The code should look similar to this:
 
 .. literalinclude:: ../code/07_rocket_launch_part3.py
-        :lines: 862 - 864
+        :lines: 862 - 865
 
 
