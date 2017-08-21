@@ -860,8 +860,9 @@ class Window(pyglet.window.Window):
         elif symbol == key.B:
             self.buildWall()
         elif symbol == key.L:
-            self.position = (10, 20, 2)
             self.model.launch_rocket()
+            if self.model.rocket_loaded:
+                self.position = (10, 20, 2)
         elif symbol == key.O:
             self.model.load_pickle()
 
