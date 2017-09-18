@@ -1,3 +1,5 @@
+# -*- coding: utf-8 -*-
+
 import math
 import random
 import time
@@ -445,26 +447,89 @@ class Model(object):
 
             
     def mob_move_right(self):
-        if self.world[(self.mob_x_position, -1, self.mob_z_position)] == MOB_STATE1:
-            self.remove_block((self.mob_x_position, -1, self.mob_z_position), True)
-        elif self.world[(self.mob_x_position, -1, self.mob_z_position)] == MOB_STATE2:
-            self.remove_block((self.mob_x_position, -1, self.mob_z_position), True)
+        """ Function to move the mob right
+        """
+        self.remove_block((self.mob_x_position, -1, self.mob_z_position))
         self.mob_x_position += 1
+        
         if self.mob_mode == "1":
             self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
-        elif self.mob_mode == "2":
+        else:
             self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE2)
-                
+            
+    def mob_move_left(self):
+        """ Function to move the mob left
+        """
+        self.remove_block((self.mob_x_position, -1, self.mob_z_position))
+        self.mob_x_position -= 1
+        
+        if self.mob_mode == "1":
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
+        else:
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE2)
+
+    def mob_move_forward(self):
+        """ Function to move the mob forward
+        """
+        self.remove_block((self.mob_x_position, -1, self.mob_z_position))
+        self.mob_z_position += 1
+        
+        if self.mob_mode == "1":
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
+        else:
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE2)
+            
+    def mob_move_backward(self):
+        """ Function to move the mob backward
+        """
+        self.remove_block((self.mob_x_position, -1, self.mob_z_position))
+        self.mob_z_position -= 1
+        
+        if self.mob_mode == "1":
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
+        else:
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE2)
+
     def launch_mob(self):
         if not self.mob_loaded:
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
             self.mob_loaded = True
+    
+    def stop_mob(self):
+        if self.mob_loaded:
+            self.mob_loaded = False
                 
     def process_mob(self):
         """
             This function will process the mob and decide if it should
-            move left or right
+            move left, right, forward, or backward
         """
-        if self.mob_loaded and self.mob_update_count >= 8:
+        
+        if self.mob_loaded and self.mob_update_count >= 128:
+            # adjust the mob
+            if self.mob_mode == "1":
+                self.mob_mode = "2"
+            elif self.mob_mode == "2":
+                self.mob_mode = "1"
+            self.mob_move_left()
+
+            self.mob_update_count = 0
+        else:
+            self.mob_update_count += 1
+            
+        if self.mob_loaded and self.mob_update_count >= 128:
+            # adjust the mob
+            if self.mob_mode == "1":
+                self.mob_mode = "2"
+            elif self.mob_mode == "2":
+                self.mob_mode = "1"
+            self.mob_move_backward()
+            
+            self.mob_update_count = 0
+        else:
+            self.mob_update_count += 1
+            
+        if self.mob_loaded and self.mob_update_count >= 128:
             # adjust the mob
             if self.mob_mode == "1":
                 self.mob_mode = "2"
@@ -474,7 +539,19 @@ class Model(object):
 
             self.mob_update_count = 0
         else:
-            self.mob_update_count += 1 
+            self.mob_update_count += 1
+            
+        if self.mob_loaded and self.mob_update_count >= 128:
+            # adjust the mob
+            if self.mob_mode == "1":
+                self.mob_mode = "2"
+            elif self.mob_mode == "2":
+                self.mob_mode = "1"
+            self.mob_move_forward()
+
+            self.mob_update_count = 0
+        else:
+            self.mob_update_count += 1
 
 
 class Window(pyglet.window.Window):
@@ -784,9 +861,9 @@ class Window(pyglet.window.Window):
         elif symbol in self.num_keys:
             index = (symbol - self.num_keys[0]) % len(self.inventory)
             self.block = self.inventory[index]
+        elif symbol == key.K:
+            self.model.stop_mob()
         elif symbol == key.L:
-            #self.model.process_mob
-            #self.model.add_block((0, -1, -2), MOB_STATE2)
             self.model.launch_mob()
 
     def on_key_release(self, symbol, modifiers):

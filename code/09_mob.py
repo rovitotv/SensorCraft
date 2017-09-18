@@ -68,7 +68,7 @@ def tex_coords(top, bottom, side):
     return result
 
 
-TEXTURE_PATH = 'alien_textures.png'
+TEXTURE_PATH = 'mob_textures.png'
 
 #                   top,   bottom,  side
 
