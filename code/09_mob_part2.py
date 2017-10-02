@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-
 import math
 import random
 import time
@@ -153,18 +152,13 @@ class Model(object):
         # _show_block() and _hide_block() calls
         self.queue = deque()
         
-        
         self.mob_loaded = False
-        
         
         self.mob_mode = "1"
         
-        
         self.mob_x_position = 0
         
-        
         self.mob_z_position = 0
-        
         
         self.mob_update_count = 0
 
