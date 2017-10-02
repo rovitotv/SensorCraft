@@ -21,6 +21,7 @@ Contents:
    06_reading_the_pickled_world.rst
    07_rocket_launch.rst
    08_making_nmusaf.rst
+   09_mob.rst
    conclusion.rst
    frequently_asked_questions.rst
 
