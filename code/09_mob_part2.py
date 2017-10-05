@@ -488,6 +488,10 @@ class Model(object):
             self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
         else:
             self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE2)
+            
+    def load_mob(self):
+        if not self.mob_loaded:
+            self.add_block((self.mob_x_position, -1, self.mob_z_position), MOB_STATE1)
 
     def launch_mob(self):
         if not self.mob_loaded:
@@ -860,6 +864,8 @@ class Window(pyglet.window.Window):
         elif symbol in self.num_keys:
             index = (symbol - self.num_keys[0]) % len(self.inventory)
             self.block = self.inventory[index]
+        elif symbol == key.O:
+            self.model.load_mob()
         elif symbol == key.K:
             self.model.stop_mob()
         elif symbol == key.L:
