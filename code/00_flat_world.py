@@ -181,9 +181,9 @@ class Model(object):
         #     s = random.randint(4, 8)  # 2 * s is the side length of the hill
         #     d = 1  # how quickly to taper off the hills
         #     t = random.choice([GRASS, SAND, BRICK])
-        #     for y in range(c, c + h):
-        #         for x in range(a - s, a + s + 1):
-        #             for z in range(b - s, b + s + 1):
+        #     for y in xrange(c, c + h):
+        #         for x in xrange(a - s, a + s + 1):
+        #             for z in xrange(b - s, b + s + 1):
         #                 if (x - a) ** 2 + (z - b) ** 2 > (s + 1) ** 2:
         #                     continue
         #                 if (x - 0) ** 2 + (z - 0) ** 2 < 5 ** 2:
