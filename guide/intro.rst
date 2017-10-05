@@ -59,7 +59,7 @@ Enthought Canopy then run the examples.  The video is for Mac OS X but the
 process for Windows and Linux is similar.
 
 We are using Enthought Canopy for this guide.  Enthought offers a installer,
-editor, and shell in a single package. The editor is great for beginners!
+editor, and shell in a single package.  The editor is great for beginners!
 Enthought has a free version of Canopy called `Canopy Express
 <https://www.enthought.com/canopy-express>`_ which will work with this guide on
 the following operating systems Linux, Mac OS X, and Windows.  Download
@@ -69,14 +69,12 @@ operating system.
 .. figure:: ../images/CanopyExpressDownload.jpg
 	:align: center
 
-SensorCraft is designed for Python 2.7 we hope in the near future to support 
-Python 3.x.  Be careful when you are downloading Canopy Express you pick a 
-version with Python 2.7 support.  Canopy now comes in two versions Canopy 
-version 1.7.x which only supports Python 2.7 and Canopy 2.1.x which supports 
-both Python 2.7 and Python 3.X.  It should not matter which version of Canopy 
-you use Canopy 2.1.x or Canopy 1.7.x as long as you select the version with 
-Python 2.7 support.  If you attempt to run SensorCraft with Python 3 you will 
-receive an error message "NameError: name 'xrange' is not defined﻿".
+SensorCraft is designed for both Python 2.7 and Python 3.5.  Be careful that when 
+you are downloading Canopy Express, you pick a version with Python 2.7  or
+Python 3.5 support.  Canopy now comes in two versions: Canopy version 1.7.x which
+only supports Python 2.7 and Canopy 2.1.x which supports both Python 2.7 and
+Python 3.X.  It should not matter which version of Canopy you use; Canopy 2.1.x 
+or Canopy 1.7.x both work.  You may run SensorCraft with Python 3 or Python 2.7.
 
 Download web page for Canopy 2.1.x with valid choices that support Python 2.7
 circled:

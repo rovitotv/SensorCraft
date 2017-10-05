@@ -1,3 +1,5 @@
+from __future__ import division
+import sys
 import math
 import random
 import time
@@ -29,6 +31,9 @@ JUMP_SPEED = math.sqrt(2 * GRAVITY * MAX_JUMP_HEIGHT)
 TERMINAL_VELOCITY = 50
 
 PLAYER_HEIGHT = 2
+
+if sys.version_info[0] >= 3:
+    xrange = range
 
 def cube_vertices(x, y, z, n):
     """ Return the vertices of the cube at position x, y, z with size 2*n.
@@ -116,7 +121,7 @@ def sectorize(position):
 
     """
     x, y, z = normalize(position)
-    x, y, z = x / SECTOR_SIZE, y / SECTOR_SIZE, z / SECTOR_SIZE
+    x, y, z = x // SECTOR_SIZE, y // SECTOR_SIZE, z // SECTOR_SIZE
     return (x, 0, z)
 
 
@@ -176,9 +181,9 @@ class Model(object):
         #     s = random.randint(4, 8)  # 2 * s is the side length of the hill
         #     d = 1  # how quickly to taper off the hills
         #     t = random.choice([GRASS, SAND, BRICK])
-        #     for y in xrange(c, c + h):
-        #         for x in xrange(a - s, a + s + 1):
-        #             for z in xrange(b - s, b + s + 1):
+        #     for y in range(c, c + h):
+        #         for x in range(a - s, a + s + 1):
+        #             for z in range(b - s, b + s + 1):
         #                 if (x - a) ** 2 + (z - b) ** 2 > (s + 1) ** 2:
         #                     continue
         #                 if (x - 0) ** 2 + (z - 0) ** 2 < 5 ** 2:
@@ -761,7 +766,7 @@ class Window(pyglet.window.Window):
         # reticle
         if self.reticle:
             self.reticle.delete()
-        x, y = self.width / 2, self.height / 2
+        x, y = self.width // 2, self.height // 2
         n = 10
         self.reticle = pyglet.graphics.vertex_list(4,
             ('v2i', (x - n, y, x + n, y, x, y - n, x, y + n))
