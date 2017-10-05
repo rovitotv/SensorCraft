@@ -28,7 +28,7 @@ there is an added texture for the mob. Do this by changing the "texture.png" to
 "mob_textures.png" so that it looks like this:
 
 .. literalinclude:: ../code/09_mob.py
-    :lines: 71
+    :lines: 77
     
 Right under this, starting on line 73, are blocks with the texture mappings.
 Here, we will be adding the two textures for the two states that the mob has.
@@ -36,14 +36,14 @@ In order to do so, add the following under the final texture mapping that is in
 the list:
 
 .. literalinclude:: ../code/09_mob.py
-        :lines: 75-80
+        :lines: 81-86
 
 Next, we will be adding the mob into the game. This will be done by telling the
 program to listen to what 'K' and 'L' are worth, so go down to line 733 and add
 the following key presses:
 
 .. literalinclude:: ../code/09_mob.py
-        :lines: 720-741
+        :lines: 725-746
         
 What was just done is telling the program to place a block that acts as the mob
 at a specific spot in the flat world with either 'K' or 'L' and then the key
@@ -63,7 +63,7 @@ mob for a specific amount of updates. First, we will need to add some new
 variables into the model class. On line 153, add these new variables:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 150-164
+        :lines: 156-168
         
 After we have added these variables, we can put them to use in a few new
 processes that we will create down on line 426. These will tell the
@@ -74,17 +74,24 @@ make a new process. Starting with moving the mob left, the following are the
 processes to move the mob:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 443-485
+        :lines: 448-490
+        
+Right after this process, we will insert a process that places the mob into the
+world, called "load_mob." This will simply put the mob into the world when
+called. It should look similar to this:
+
+.. literalinclude:: ../code/09_mob_part2.py
+        :lines: 492-494
         
 Next, we will add a process so that when it is called, it will launch the mob,
 as well as one to stop the mob. These processes will use the variable mob_loaded
 that we added to the program earlier. The one to launch the mob will load in the
 initial block with the mob texture, and the one to stop the mob will end that 
 process. Add the following lines on line 487, right under the processes we just
-created to move the mob:
+created to load the mob:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 487-494
+        :lines: 496-503
         
 Then, we need to add the process for the complete movement of the mob, calling
 the four processes for each direction of movement created previously. This will
@@ -105,15 +112,15 @@ run. Do this by adding the process_mob process to the update process in the
 window class on line 699. The update process should now look similar to this:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 678-700
+        :lines: 687-709
 
 Finally, the key binds need to be changed to call the processes that we have
 just made. Under the on_keypress process in the window class on line 828, add
-two keys, 'K' and 'L' and then tell them to call the processes we just made.
-The final on_keypress process should look close to what this looks like:
+three keys, 'K' , 'L' and 'O' and then tell them to call the processes we just 
+made. The final on_keypress process should look close to what this looks like:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 828-861
+        :lines: 849-872
 
 Now, you have an automated mob that moves around at the press of a button, and
 can be stopped at the press of a button.

@@ -1,7 +1,9 @@
+from __future__ import division
+import sys
 import math
 import random
 import time
-import cPickle
+import pickle
 
 from collections import deque
 from pyglet import image
@@ -30,6 +32,9 @@ JUMP_SPEED = math.sqrt(2 * GRAVITY * MAX_JUMP_HEIGHT)
 TERMINAL_VELOCITY = 50
 
 PLAYER_HEIGHT = 2
+
+if sys.version_info[0] >= 3:
+    xrange = range
 
 def cube_vertices(x, y, z, n):
     """ Return the vertices of the cube at position x, y, z with size 2*n.
@@ -123,7 +128,7 @@ def sectorize(position):
 
     """
     x, y, z = normalize(position)
-    x, y, z = x / SECTOR_SIZE, y / SECTOR_SIZE, z / SECTOR_SIZE
+    x, y, z = x // SECTOR_SIZE, y // SECTOR_SIZE, z // SECTOR_SIZE
     return (x, 0, z)
 
 
@@ -426,13 +431,13 @@ class Model(object):
                 composite_world[world_key] = world_value
 
         with open('composite_world.pkl', 'wb') as output:
-            cPickle.dump(composite_world, output)
+            pickle.dump(composite_world, output)
 
     def load_pickle(self):
         """ this method will load the pickle and add it to the world
         """
         with open('composite_world.pkl', 'rb') as pkl_file:
-            composite_world = cPickle.load(pkl_file)
+            composite_world = pickle.load(pkl_file)
             for composite_key, composite_value in composite_world.items():
                 self.add_block(composite_key, composite_value, immediate=True)
 
@@ -781,7 +786,7 @@ class Window(pyglet.window.Window):
         # reticle
         if self.reticle:
             self.reticle.delete()
-        x, y = self.width / 2, self.height / 2
+        x, y = self.width // 2, self.height // 2
         n = 10
         self.reticle = pyglet.graphics.vertex_list(4,
             ('v2i', (x - n, y, x + n, y, x, y - n, x, y + n))

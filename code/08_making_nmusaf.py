@@ -1,8 +1,10 @@
 # created two more textures
 # used this program to re-create the NMUSAF in a block world
+from __future__ import division
+import sys
 import math
 import time
-import cPickle
+import pickle
 
 from collections import deque
 from pyglet import image
@@ -31,6 +33,9 @@ JUMP_SPEED = math.sqrt(2 * GRAVITY * MAX_JUMP_HEIGHT)
 TERMINAL_VELOCITY = 50
 
 PLAYER_HEIGHT = 2
+
+if sys.version_info[0] >= 3:
+    xrange = range
 
 def cube_vertices(x, y, z, n):
     """ Return the vertices of the cube at position x, y, z with size 2*n.
@@ -126,7 +131,7 @@ def sectorize(position):
 
     """
     x, y, z = normalize(position)
-    x, y, z = x / SECTOR_SIZE, y / SECTOR_SIZE, z / SECTOR_SIZE
+    x, y, z = x // SECTOR_SIZE, y // SECTOR_SIZE, z // SECTOR_SIZE
     return (x, 0, z)
 
 
@@ -425,14 +430,14 @@ class Model(object):
             save_world[world_key] = world_value
 
         with open('nmusaf.pkl', 'wb') as output:
-            cPickle.dump(save_world, output)
+            pickle.dump(save_world, output)
 
     def load_pickle(self):
         """ this method will load the pickle and add it to the world
         """
         print("loading world from nmusaf.pkl it could take a minute...")
         with open('nmusaf.pkl', 'rb') as pkl_file:
-            load_world = cPickle.load(pkl_file)
+            load_world = pickle.load(pkl_file)
             for load_key, load_value in load_world.items():
                 self.add_block(load_key, load_value, immediate=True)
 
@@ -789,7 +794,7 @@ class Window(pyglet.window.Window):
         # reticle
         if self.reticle:
             self.reticle.delete()
-        x, y = self.width / 2, self.height / 2
+        x, y = self.width // 2, self.height // 2
         n = 10
         self.reticle = pyglet.graphics.vertex_list(4,
             ('v2i', (x - n, y, x + n, y, x, y - n, x, y + n))
