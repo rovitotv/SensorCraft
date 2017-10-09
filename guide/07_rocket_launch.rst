@@ -26,35 +26,35 @@ following command::
 First we need to create a new variable within the "Model" class that helps the
 class keep track of whether the rocket has been loaded or not.  This will
 prevent a player from loading the a rocket multiple times.  Jump down to line
-157 and add the code shown below:
+162 and add the code shown below:
 
 .. literalinclude:: ../code/07_rocket_launch.py
-	:lines: 157-159
+	:lines: 162-164
 
-Next jump down to line 445 and create a new method called "move_rocket_up" 
+Next jump down to line 450 and create a new method called "move_rocket_up" 
 which will move the rocket up one block.  The new "move_rocket_up" method is
 shown below:
 
 .. literalinclude:: ../code/07_rocket_launch.py
-	:lines: 445-471
+	:lines: 450-476
 
 Our rocket will include the advanced ability to land so at line 473 add a 
 new method called "move_rocket_down" which will move the rocket down one
 block.  The new "move_rocket_down" method is shown below:
 
 .. literalinclude:: ../code/07_rocket_launch.py
-	:lines: 473-499
+	:lines: 478-504
 
 Next we need to make sure the position and rotation of Dr. Steve is correct
 so when the rocket appears we will be looking at the rocket and not somewhere
 else.  Feel free to adjust these numbers as you see fit, the rotation and
 position variable that we use in this guide are just suggestions.  A little
 experimentation goes along way when setting position and rotation variables.
-On line 521 - 531 of the Window constructor in the method called __init__
+On line 526 - 536 of the Window constructor in the method called __init__
 change the self.position and self.rotation variables as shown below:
 
 .. literalinclude:: ../code/07_rocket_launch.py
-	:lines: 521-531
+	:lines: 526-536
 
 The last thing we need to do is modify the familiar method "on_key_press" so
 when the "L" key is pressed the "move_rocket_up" method is called and when
@@ -62,7 +62,7 @@ the "K" key is pressed the "move_rocket_down" method is called.  The new
 "on_key_press" method is listed below:
 
 .. literalinclude:: ../code/07_rocket_launch.py
-	:lines: 777-814
+	:lines: 782-819
 
 Notice that the new methods "move_rocket_up" and "move_rocket_down" are both
 in the class called "Model".  This is expected because manipulating blocks is
