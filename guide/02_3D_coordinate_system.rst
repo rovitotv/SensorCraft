@@ -65,16 +65,16 @@ texture file called "numbered_textures.png" that looks like the following:
    :align:   center
 
 In order to use the new "numbered_textures.png" file you want to change the
-line 71 to::
+line 76 to::
 
 	TEXTURE_PATH = 'numbered_textures.png'
 
 After changing the TEXTURE_PATH variable we want to add new block types for
-each of the numbered stone blocks starting at line 73 append the following
+each of the numbered stone blocks starting at line 78 append the following
 codes:
 
 .. literalinclude:: ../code/02_3D_coordinate_system.py
-	:lines: 77-87
+	:lines: 78-92
 
 To make sure you don't create a typo simply copy and paste the code from the
 web browser to your editor. Next we are going to adjust the initialize function
@@ -83,7 +83,7 @@ the x axis and z axis.  Here is what the initialize function should look like
 when you are done:
 
 .. literalinclude:: ../code/02_3D_coordinate_system.py
-	:lines: 164-185
+	:lines: 169-190
 
 We are cleverly using a for loop and placing four blocks at a time, by using a
 simple negative sign we can go in both positive and negative directions 
@@ -101,5 +101,4 @@ y axis so we have three number lines that will represent our 3D world.  The
 solution is below.
 
 .. literalinclude:: ../code/02_3D_coordinate_system_part2.py
-	:lines: 164-192
-
+	:lines: 169-197
