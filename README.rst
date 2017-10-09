@@ -3,8 +3,7 @@ README
 
 .. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
-    
-    
+       
 .. image:: https://readthedocs.org/projects/sensorcraft/badge/?version=latest
 	:target: http://sensorcraft.readthedocs.io/en/latest/?badge=latest
 	:alt: Latest Documentation Status
@@ -34,12 +33,15 @@ open the file "index.html" file in your browser.
 A `YouTube video has been created <https://youtu.be/C9n1bS54AIw>`_
 to show students how to install SensorCraft and Enthought Canopy
 then run the examples.  The video is for Mac OS X but the process
-for Windows and Linux is similar.  **SensorCraft requires Python 2.7, make sure
-you install a version of Enthought Canopy that supports Python 2.7.**
+for Windows and Linux is similar.  **SensorCraft supports both Python 2.7 and 
+Python 3.x, make sure you install a version of Enthought Canopy that supports 
+Python 2.7 or Python 3.x.**
 
   
 GitHub Release
 ==============
+
+`v1.9 Thanks to @Fladam for a MOB Chapter and Python 3 support <https://github.com/rovitotv/SensorCraft/releases/download/v1.9/SensorCraftV1.9.zip>`_
 
 `v1.8 Thanks to @Fladam Dr. Steve can now ride the rocket, updated Enthought install directions to reflect new version, and added a FAQ <https://github.com/rovitotv/SensorCraft/releases/download/v1.8/SensorCraftV1.8.zip>`_
 
@@ -167,13 +169,3 @@ GitHub has a RESTFul API so use the CURL commands::
 	
 	curl -i https://api.github.com/repos/rovitotv/SensorCraft/releases &> ~/temp/GHSensorCraftRelease.txt
 	cat ~/temp/GHSensorCraftRelease.txt | grep 'download_count'
-
-	
-
-
-
-
-
-
-
- 

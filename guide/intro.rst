@@ -61,29 +61,37 @@ process for Windows and Linux is similar.
 We are using Enthought Canopy for this guide.  Enthought offers a installer,
 editor, and shell in a single package.  The editor is great for beginners!
 Enthought has a free version of Canopy called `Canopy Express
-<https://www.enthought.com/canopy-express>`_ which will work with this guide on
-the following operating systems Linux, Mac OS X, and Windows.  Download
-and install Enthought Canopy Express just like any other program on your
-operating system.  
+<https://store.enthought.com/downloads/>`_ which will work with this guide on
+the following operating systems Linux, Mac OS X, and Windows. 
+
+A brief note about Python versions, the Python community has been driving
+towards Python 3 since 2008.  Python 2.7 will be end of life in 2020
+so we recommend that new Python users start off with Python 3.X.  Over the
+last few years their has been increasing support for Python 3.X and 2020
+will be here before you know it.  When we state Python 3.X we have tested
+SensorCraft with Python 3.5 but it should work with Python 3.6 or any 
+future 3.X version of Python.
+
+
+Download and install Enthought Canopy Express just like any other program on 
+your operating system.  
 
 .. figure:: ../images/CanopyExpressDownload.jpg
 	:align: center
 
-SensorCraft is designed for both Python 2.7 and Python 3.5.  Be careful that when 
+SensorCraft is designed for both Python 2.7 and Python 3.X.  Be careful that when 
 you are downloading Canopy Express, you pick a version with Python 2.7  or
-Python 3.5 support.  Canopy now comes in two versions: Canopy version 1.7.x which
+Python 3.X support.  Canopy now comes in two versions: Canopy version 1.7.x which
 only supports Python 2.7 and Canopy 2.1.x which supports both Python 2.7 and
 Python 3.X.  It should not matter which version of Canopy you use; Canopy 2.1.x 
-or Canopy 1.7.x both work.  You may run SensorCraft with Python 3 or Python 2.7.
+or Canopy 1.7.x both work.  You may run SensorCraft with Python 3.X or Python 2.7.
 
-Download web page for Canopy 2.1.x with valid choices that support Python 2.7
-circled:
+Download web page for Canopy 2.1.x with either Python 2.7 or Python 3.X support:
 
 .. figure:: ../images/CanopyExpress2.jpg
 	:align: center
 
-Download web page for Canopy 1.7.x with valid choices that support Python 2.7
-circled:
+Download web page for Canopy 1.7.x with support for Python 2.7:
 
 .. figure:: ../images/CanopyExpress1.7.jpg
 	:align: center
