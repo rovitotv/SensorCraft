@@ -15,7 +15,7 @@ TICKS_PER_SEC = 60
 # Size of sectors used to ease block loading.
 SECTOR_SIZE = 16
 
-WALKING_SPEED = 10 # originally 5
+WALKING_SPEED = 5 # originally 5
 FLYING_SPEED = 15
 
 GRAVITY = 20.0 # originally 20.0
