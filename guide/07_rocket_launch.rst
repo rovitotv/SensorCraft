@@ -81,31 +81,31 @@ down into much smaller pieces, then solve each of those pieces individually.
 A common phrase is "How do you eat an elephant? One bite at a time".  
 
 First the model class needs several new variables added to the code so move
-down to line 161 and enter the code below:
+down to line 162 and enter the code below:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 161-173
+	:lines: 162-178
 
 One of the new variables we added was rocket altitude this is simply number
 of blocks with 0 altitude representing the starting point.  Recall for our
 coordinate system in SensorCraft Y represents height above the ground plane.
-Next on line 466 you want to add a line that will increase the altitude one
+Next on line 464 you want to add a line that will increase the altitude one
 block every time the method "move_rocket_up" is called:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 459-486
+	:lines: 464-491
 
 We should make the same change for the corresponding function 
 "move_rocket_down" which will decrease the altitude by one block every time
 the method is called:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 488-515
+	:lines: 493-520
 
 Next we need to add two methods at the end of the model class:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 517-543
+	:lines: 522-548
 
 The method "launch_rocket" is simple it checks to make sure the rocket
 is loaded, meaning the user pressed the "O" key, and the rocket is not
@@ -125,39 +125,37 @@ Next we have to update the familiar method "on_key_press" to use the
 new methods we just created in the model class:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 822-857
+	:lines: 827-862
 
 Finally we have to modify the update method in the window class.  Since
 different speed computers exist one common technique used in simulations is to
 base events on time.  SensorCraft is set to call the update method in the
-window class 1.0 / TICKS_PER_SEC or 1/60th of a second on line 608. All we
+window class 1.0 / TICKS_PER_SEC or 1/60th of a second on line 609. All we
 have to do is call the process_rocket method in the model class using the
-code below on line 672:
+code below on line 677:
 
 .. literalinclude:: ../code/07_rocket_launch_part2.py
-	:lines: 672 - 694
+	:lines: 677 - 699
 
 Dr. Steve Rides the Rocket - Part 3
 -----------------------------------
 
 In part 1 and part 2 of the rocket launch, Dr. Steve was on the ground while the
 rocket was launched. In part 3, we are going to put Dr. Steve on top of the
-rocket so that he rides it. First, we are going to add to the rocket process on
-line 695 so that Dr. Steve goes up as the rocket goes up. Add the line "if
-self.model.rocket_launched:" and then add
+rocket so that he rides the rocket. First, we are going to add to the rocket 
+process on line 701 so that Dr. Steve goes up as the rocket goes up. Add the 
+line "if self.model.rocket_launched:" and then add
 "self.position = (10, self.model.rocket_altitude + 19, 2)" below that. The new
 position is where Dr. Steve will go when the rocket is launched, which is on top
-of the rocket. What you have now should look like this:
+of the rocket. The code should look like the following:
 
 .. literalinclude:: ../code/07_rocket_launch_part3.py
-        :lines: 696 - 702
+        :lines: 701 - 707
 
-Finally, we need to add "if self.model.rocket_loaded:" on line 856, and then add
+Finally, we need to add "if self.model.rocket_loaded:" on line 867, and then add
 "self.position = (10, 20, 2)" below that. This makes it so that when you press
 "L" to launch the rocket, Dr. Steve is put on top of the rocket so that he can
 ride it. The code should look similar to this:
 
 .. literalinclude:: ../code/07_rocket_launch_part3.py
-        :lines: 862 - 865
-
-
+        :lines: 867 - 870
