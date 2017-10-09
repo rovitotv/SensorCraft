@@ -72,7 +72,6 @@ will be here before you know it.  When we state Python 3.X we have tested
 SensorCraft with Python 3.5 but it should work with Python 3.6 or any 
 future 3.X version of Python.
 
-
 Download and install Enthought Canopy Express just like any other program on 
 your operating system.  
 
