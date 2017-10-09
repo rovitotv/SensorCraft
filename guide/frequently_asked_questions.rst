@@ -6,13 +6,13 @@ What version of Python is required?
 -----------------------------------
 
 SensorCraft currently supports Python 2.7 and Python 3.X.  We have tested 
-the software with Enthought Canopy version 1.7.x and version 2.1.3 
-Canopy 2.1.3 supports both Python 2.7 and Python 3.5.  Please make sure
+the software with Enthought Canopy version 1.7.x and Enthought Canopy 
+version 2.1.3 which supports both Python 2.7 and Python 3.5.  Please make sure
 you download and install the correct version of Python on your computer so
 SensorCraft will run.  The `install section of the guide 
 <http://sensorcraft.readthedocs.io/en/latest/intro.html#install>`_ has all 
 the details and steps you through installing a Enthought Canopy with 
-Python 2.7 or Python 3.5.
+Python 2.7 or Python 3.X.
 
 Error "AttributeError: 'Window' object has no attribute 'label'"
 ----------------------------------------------------------------
