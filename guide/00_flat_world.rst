@@ -26,7 +26,7 @@ Now run the program "python 00_flat_world_TVR.py".  Then walk in a straight line
 and eventually you will run into a stone wall.  
 
 One more thing lets change the name of our game to Sensor Craft.  Skip down to
-line 891 and change the caption parameter from "Pyglet" to "Sensor Craft". Test
+line 891 and change the caption parameter from "Pyglet" to "SensorCraft". Test
 your title change by running the program once again "python
 00_flat_world_tvr.py",  then make sure the title has been changed.
 
