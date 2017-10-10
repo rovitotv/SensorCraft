@@ -91,7 +91,8 @@ either Python 2.7 or Python 3.X support:
 .. figure:: ../images/CanopyExpress2.jpg
 	:align: center
 
-Click the download tab for Canopy 1.7.x with support for Python 2.7:
+Click the tab for Canopy 1.7.x if you want the older version of Canopy with 
+support for Python 2.7:
 
 .. figure:: ../images/CanopyExpress1.7.jpg
 	:align: center
