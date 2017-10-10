@@ -76,7 +76,6 @@ def tex_coords(top, bottom, side):
 TEXTURE_PATH = 'mob_textures.png'
 
 #                   top,   bottom,  side
-
 GRASS = tex_coords((1, 0), (0, 1), (0, 0))
 SAND = tex_coords((1, 1), (1, 1), (1, 1))
 BRICK = tex_coords((2, 0), (2, 0), (2, 0))
