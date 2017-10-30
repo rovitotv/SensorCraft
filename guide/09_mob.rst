@@ -19,7 +19,7 @@ this, you will need to add a block in, and then set keys to change the state of
 the mob and move it. First of all, we will be using the flat world from chapter
 0 for this exercise. To do that, you will need to copy 00_flat_world_TVR.py to
 09_mob_TVR.py but replace TVR with your initials as done in previous chapters. 
-To do that, you will need to run this command:
+To do that, you will need to run this command::
 
                     cp 00_flat_world_TVR.py 09_mob_TVR.py
                     
@@ -28,22 +28,22 @@ there is an added texture for the mob. Do this by changing the "texture.png" to
 "mob_textures.png" so that it looks like this:
 
 .. literalinclude:: ../code/09_mob.py
-    :lines: 77
+    :lines: 76
     
-Right under this, starting on line 73, are blocks with the texture mappings.
+Right under this, starting on line 78, are blocks with the texture mappings.
 Here, we will be adding the two textures for the two states that the mob has.
 In order to do so, add the following under the final texture mapping that is in
 the list:
 
 .. literalinclude:: ../code/09_mob.py
-        :lines: 81-86
+        :lines: 78-84
 
 Next, we will be adding the mob into the game. This will be done by telling the
 program to listen to what 'K' and 'L' are worth, so go down to line 733 and add
 the following key presses:
 
 .. literalinclude:: ../code/09_mob.py
-        :lines: 725-746
+        :lines: 712-745
         
 What was just done is telling the program to place a block that acts as the mob
 at a specific spot in the flat world with either 'K' or 'L' and then the key
@@ -60,10 +60,10 @@ the mob so that it can at least move around at the press of a key, and then stop
 moving when you press another key. This exercise is similar to moving the rocket
 based on time in chapter 7 because we will be telling the program to move the
 mob for a specific amount of updates. First, we will need to add some new
-variables into the model class. On line 153, add these new variables:
+variables into the model class. On line 160, add these new variables:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 156-168
+        :lines: 160-168
         
 After we have added these variables, we can put them to use in a few new
 processes that we will create down on line 426. These will tell the
@@ -104,12 +104,12 @@ slower by making the number larger. Insert the following lines on line 496 to
 create this process:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 496-548
+        :lines: 496-557
 
 Since we have now added an update count in the model class, we have to call that
 update in the window class so that it appears on the screen when the program is
 run. Do this by adding the process_mob process to the update process in the
-window class on line 699. The update process should now look similar to this:
+window class on line 709. The update process should now look similar to this:
 
 .. literalinclude:: ../code/09_mob_part2.py
         :lines: 687-709
@@ -120,7 +120,7 @@ three keys, 'K' , 'L' and 'O' and then tell them to call the processes we just
 made. The final on_keypress process should look close to what this looks like:
 
 .. literalinclude:: ../code/09_mob_part2.py
-        :lines: 849-872
+        :lines: 837-872
 
 Now, you have an automated mob that moves around at the press of a button, and
 can be stopped at the press of a button.
