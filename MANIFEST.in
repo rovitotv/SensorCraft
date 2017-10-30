@@ -1,0 +1,6 @@
+include *.txt
+recursive-include /docs *
+recursive-include sensorcraft/images *
+include CHANGES.txt
+include LICENSE.txt
+prune /build
