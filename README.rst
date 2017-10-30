@@ -168,7 +168,47 @@ GitHub has a RESTFul API so use the CURL commands::
 	curl -i https://api.github.com/repos/rovitotv/SensorCraft/releases &> ~/temp/GHSensorCraftRelease.txt
 	cat ~/temp/GHSensorCraftRelease.txt | grep 'download_count'
 
-	
+How to create a PyPi package
+----------------------------
+
+First, rename the "code" directory to "sensorcraft" to specify the name of the
+package. Move the images directory into the directory that is now named
+"sensorcraft." Then, rename the "guide" directory to "docs" to let the package
+know that it contains the documentation.
+
+Create a new file in your user's home directory using terminal with the
+following commands::
+
+    cd /Users/(your_username)
+    mkfile -n 1024 .pypirc
+    
+In that file, type the following and then save it::
+
+    [distutils]
+    index-servers =
+        pypi
+    
+    [pypi]
+    username=your_username
+    password=your_password
+    
+Go into terminal and enter the following to install twine which will be used to
+upload the package to PyPi::
+
+    pip install twine
+    
+Finally, create and upload the package to PyPi with these final commands while
+in the directory containing the package directory::
+
+    python setup.py sdist
+    twine upload dist/PACKAGENAME-VERSION.tar.gz
+    
+References for creating a PyPi package:
+https://tom-christie.github.io/articles/pypi/
+https://packaging.python.org/tutorials/distributing-packages/
+
+
+
 
 
 
