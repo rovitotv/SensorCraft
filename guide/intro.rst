@@ -35,11 +35,11 @@ https://github.com/fogleman/Minecraft
 This code is open source with the original license in the file named LICENSE
 take note we are permitted to use it and or modify it.  The original code is in
 main.py and the original texture is called "texture.png".  Thank you fogleman
-for your effort your project is an amazing foundation to build a STEM project
-on. In science it is not unusual to start with somebody else's work. Sir Isaac
+for your effort your project is an amazing foundation to build a STEM project. 
+In science it is not unusual to start with somebody else's work. Sir Isaac
 Newton is quoted as saying "if I have seen further, it is by standing on the
 shoulders of giants". Newton was talking about how science builds upon the base
-that has been built  before.  We would argue nowhere in the history of man kind
+that has been built before.  We would argue nowhere in the history of man kind
 has the shoulders of giants concept been used like it has in software. Software
 is easy to  replicate and share.  In Sir Isaac Newton's spirit this guide will
 be on github for all to modify, edit, and add to as people see fit. I am not
@@ -68,7 +68,7 @@ A brief note about Python versions, the Python community has been driving
 towards Python 3 since 2008.  Python 2.7 will be end of life in 2020
 so we recommend that new Python users start off with Python 3.X.  Over the
 last few years their has been increasing support for Python 3.X and 2020
-will be here before you know it.  When we state Python 3.X we have tested
+will be here sooner than we think.  When we state Python 3.X we have tested
 SensorCraft with Python 3.5 but it should work with Python 3.6 or any 
 future 3.X version of Python.
 
@@ -85,17 +85,20 @@ only supports Python 2.7 and Canopy 2.1.x which supports both Python 2.7 and
 Python 3.X.  It should not matter which version of Canopy you use; Canopy 2.1.x 
 or Canopy 1.7.x both work.  You may run SensorCraft with Python 3.X or Python 2.7.
 
-Download web page for Canopy 2.1.x with either Python 2.7 or Python 3.X support:
+Scroll down to see the the download section of web page for Canopy 2.1.x with
+either Python 2.7 or Python 3.X support:
 
 .. figure:: ../images/CanopyExpress2.jpg
 	:align: center
 
-Download web page for Canopy 1.7.x with support for Python 2.7:
+Click the tab for Canopy 1.7.x if you want the older version of Canopy with 
+support for Python 2.7:
 
 .. figure:: ../images/CanopyExpress1.7.jpg
 	:align: center
 
-Start Canopy and you will be presented with the "Canopy
+After you install Canopy like you would install any normal program for your
+operating system, start Canopy and you will be presented with the "Canopy
 Welcome Screen", select the Editor button.  See below:
 
 .. figure:: ../images/canopy_welcome.jpg
