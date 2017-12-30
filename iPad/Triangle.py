@@ -1,3 +1,7 @@
+'''
+This simple example came from a thread on the pythonista message boards here:
+	https://forum.omz-software.com/topic/2066/python-opengles
+'''
 #!python2
 from ctypes import *
 from objc_util import *
@@ -153,5 +157,3 @@ def main():
     vertex_shader = load_shader(GL_VERTEX_SHADER, vShaderStr)
 
 main()
-# the code below requires python 2.7		
-
