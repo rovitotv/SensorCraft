@@ -1,6 +1,11 @@
 '''
-This simple example came from a thread on the pythonista message boards here:
+This program started with a thread on the pythonista message boards here:
 	https://forum.omz-software.com/topic/2066/python-opengles
+	
+but then I found the code here:
+	https://github.com/Cethric/OpenGLES-Pythonista/blob/3c2332dcc31a091c0388f258e6ae4f7bbce89445/Util/Shader.py
+	
+I am trying to draw a simple Triangle but can't get past loading the shader
 '''
 #!python2
 from ctypes import *
@@ -16,7 +21,7 @@ UINavigationController = ObjCClass('UINavigationController')
 UIBarButtonItem = ObjCClass('UIBarButtonItem')
 EAGLContext = ObjCClass('EAGLContext')
 
-#functions defined here
+#functions defined here we should put this in a different file
 
 #glClearColor
 glClearColor = c.glClearColor
@@ -37,7 +42,7 @@ glCreateShader.restype = c_uint32
 glShaderSource = c.glShaderSource
 glShaderSource.restype = None
 #glShaderSource.argtypes = [c_uint32, c_int32, c_char_p, c_void_p]
-glShaderSource.argtypes = [GLuint, GLsizei, GLchar, GLint]
+#glShaderSource.argtypes = [GLuint, GLsizei, c_char_p, GLint]
 
 #glCompileShader
 glCompileShader = c.glCompileShader
@@ -65,26 +70,6 @@ GL_FLOAT = 0x1406
 GL_FALSE = 0x0000
 GL_TRIANGLES = 0x0004
 
-'''
-def glShaderSource(shader, count, param0, param1, shader_t=GLuint, count_t=GLsizei, param0_t=GLchar, param1_t=GLint):
-        restype = None
-        argtypes = [shader_t, count_t, param0_t, param1_t]
-        cfunc = c.glShaderSource
-        cfunc.restype = restype
-        cfunc.argtypes = argtypes
-        return cfunc(shader, count, param0, param1)
-    
-
-    # Load the shader source
-        char_arr = (ctypes.c_char_p * len(self.source))
-        ca = char_arr()
-        ca[0] = self.source
-        args = (GLuint(shader),
-                GLsizei(1),
-                ca,
-                GLint(0))
-        glShaderSource(*args, param0_t=char_arr)
-'''
 def load_shader(shader_type, shader_source):
 	shader = c_uint32(0)
 	compiled = c_int(0)
@@ -95,10 +80,10 @@ def load_shader(shader_type, shader_source):
 		sys.exit(200)
 	
 	# load the shader source
-	char_arr = (ctypes.c_char_p * len(shader_source))
+	char_arr = (c_char_p * len(shader_source))
 	ca = char_arr()
 	ca[0] = shader_source
-	glShaderSource(shader, c_int32(1), ca, c_int32(len(shader_source)))
+	glShaderSource(shader, GLsizei(1), ca, GLint(0))
 	# compile the shader
 	glCompileShader(shader)
 	# check the compile status
@@ -153,7 +138,7 @@ def main():
     rootvc.presentModalViewController_animated_(nav, True)
     nav.release()
     #vShaderStr = c_char_p("attribute vec4 vPosition;\nvoid main()\n{\ngl_Position = vPosition\n}")
-    vShaderStr = "attribute vec4 vPosition;\nvoid main()\n{\ngl_Position = vPosition\n}"
+    vShaderStr = (b"attribute vec4 vPosition;\nvoid main()\n{\ngl_Position = vPosition\n}")
     vertex_shader = load_shader(GL_VERTEX_SHADER, vShaderStr)
 
 main()

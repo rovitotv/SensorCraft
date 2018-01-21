@@ -208,13 +208,3 @@ in the directory containing the package directory::
 References for creating a PyPi package:
 https://tom-christie.github.io/articles/pypi/
 https://packaging.python.org/tutorials/distributing-packages/
-
-
-
-
-
-
-
-
-
-
