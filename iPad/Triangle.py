@@ -4,8 +4,11 @@ This program started with a thread on the pythonista message boards here:
 	
 but then I found the code here:
 	https://github.com/Cethric/OpenGLES-Pythonista/blob/3c2332dcc31a091c0388f258e6ae4f7bbce89445/Util/Shader.py
+
+this forum post on pythonista helped with glCreateShader:
+	https://forum.omz-software.com/topic/4650/trouble-with-opengl-ctypes-and-pythonista
 	
-I am trying to draw a simple Triangle but can't get past loading the shader
+Draw a simple triangle
 '''
 #!python2
 from ctypes import *
@@ -26,38 +29,37 @@ EAGLContext = ObjCClass('EAGLContext')
 #glClearColor
 glClearColor = c.glClearColor
 glClearColor.restype = None
-glClearColor.argtypes = [c_float, c_float, c_float, c_float]
+glClearColor.argtypes = [GLfloat, GLfloat, GLfloat, GLfloat]
 
 #glClear
 glClear = c.glClear
 glClear.restype = None
-glClear.argtypes = [c_uint]
+glClear.argtypes = [GLbitfield]
 
 #glCreateShader
 glCreateShader = c.glCreateShader
-glCreateShader.restype = c_uint32
-#glCreateShader.argtypes = [c_uint32]
+glCreateShader.restype = GLuint
+glCreateShader.argtypes = [GLenum]
 
 #glShaderSource
 glShaderSource = c.glShaderSource
 glShaderSource.restype = None
-#glShaderSource.argtypes = [c_uint32, c_int32, c_char_p, c_void_p]
-#glShaderSource.argtypes = [GLuint, GLsizei, c_char_p, GLint]
+glShaderSource.argtypes = [GLuint, GLsizei, POINTER(c_char_p), POINTER(GLint)]
 
 #glCompileShader
 glCompileShader = c.glCompileShader
-glCompileShader.argtypes = [c_uint32]
 glCompileShader.restype = None
+glCompileShader.argtypes = [GLuint]
 
 #glGetShaderiv
 glGetShaderiv = c.glGetShaderiv
-glGetShaderiv.argtypes = [c_uint32, c_uint32, c_void_p]
 glGetShaderiv.restype = None
+glGetShaderiv.argtypes = [GLuint, GLenum, POINTER(GLint)]
 
 #glGetSahderInfoLog(shader, N, byref(log_length), byref(info_log))
 glGetShaderInfoLog = c.glGetShaderInfoLog
-glGetShaderInfoLog.argtypes = [c_uint32, c_int32, c_void_p, c_void_p]
 glGetShaderInfoLog.restype = None
+glGetShaderInfoLog.argtypes = [GLuint, GLsizei, POINTER(GLsizei), POINTER(GLchar)]
 
 #constants are defined here
 GL_COLOR_BUFFER_BIT = 0x00004000
@@ -80,10 +82,8 @@ def load_shader(shader_type, shader_source):
 		sys.exit(200)
 	
 	# load the shader source
-	char_arr = (c_char_p * len(shader_source))
-	ca = char_arr()
-	ca[0] = shader_source
-	glShaderSource(shader, GLsizei(1), ca, GLint(0))
+	glShaderSource(shader, 1, byref(cast(shader_source, c_char_p)), None)
+
 	# compile the shader
 	glCompileShader(shader)
 	# check the compile status
@@ -94,9 +94,9 @@ def load_shader(shader_type, shader_source):
 		glGetShaderiv(shader, GL_INFO_LOG_LENGTH, byref(info_length))
 		if info_length.value > 1:
 			N = 1024
-			info_log = (c_char * N)()
+			info_log = (GLchar * N)()
 			log_length = c_int()
-			glGetShaderInfoLog(shader, N, byref(log_length), byref(info_log))
+			glGetShaderInfoLog(shader, N, byref(log_length), cast(info_log, c_char_p))
 			print("error from OpenGL compiler: %s" % info_log.value)
 		return 0
 	return shader
@@ -137,8 +137,9 @@ def main():
     rootvc = UIApplication.sharedApplication().keyWindow().rootViewController()
     rootvc.presentModalViewController_animated_(nav, True)
     nav.release()
-    #vShaderStr = c_char_p("attribute vec4 vPosition;\nvoid main()\n{\ngl_Position = vPosition\n}")
-    vShaderStr = (b"attribute vec4 vPosition;\nvoid main()\n{\ngl_Position = vPosition\n}")
+    vShaderStr = (b"attribute vec4 vPosition;void main(){gl_Position = vPosition;}")
     vertex_shader = load_shader(GL_VERTEX_SHADER, vShaderStr)
+    fShaderStr = (b"precision mediump float; void main(void){ gl_FragColor = vec4(0.0, 0.0, 0.0, 1.0);}")
+    fragment_shader = load_shader(GL_FRAGMENT_SHADER, fShaderStr)
 
 main()
