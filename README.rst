@@ -1,6 +1,10 @@
 README
 ******
 
+This project is has now moved to the `AFRL-RY/SensorCraft github page <https://github.com/AFRL-RY/SensorCraft>`_
+and the project now has a `website https://sensorcraft.org <https://sensorcraft.org>`_.  Check out new chapters 
+that have been added.  
+
 .. figure:: images/sensorcraft_lab_coat_smallest.jpg
     :align: center
        
